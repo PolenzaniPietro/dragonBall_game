@@ -4,10 +4,17 @@
  */
 package dragonballgame;
 
+import dragonballgame.Events.event;
+import java.util.Random;
+
 /**
  *
  * @author pietr
  */
-public class eventManager {
-    
+public class EventManager {
+    public static event randomEvent(){
+        int rnd = new Random().nextInt(event.values().length);
+        event eventoRandom = event.values()[rnd];       
+        return eventoRandom;
+    }
 }

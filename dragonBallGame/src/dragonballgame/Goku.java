@@ -8,6 +8,6 @@ package dragonballgame;
  *
  * @author pietr
  */
-public class Goku {
+public class Goku /*extends Character*/{
     
 }

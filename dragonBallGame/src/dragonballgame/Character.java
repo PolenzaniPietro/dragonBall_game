@@ -8,6 +8,14 @@ package dragonballgame;
  *
  * @author pietr
  */
-public class Character {
+public abstract class Character {
+    private int aura;
+    private int att;
+    private int stamina;
+    private boolean transformation;
     
+    public abstract void attack();
+    public abstract void specialAttack();
+    public abstract void specialAbility();
+    public abstract void auraCharge();           
 }

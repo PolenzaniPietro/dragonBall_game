@@ -9,5 +9,6 @@ package dragonballgame;
  * @author pietr
  */
 public class Player {
+    private String name;
     
 }

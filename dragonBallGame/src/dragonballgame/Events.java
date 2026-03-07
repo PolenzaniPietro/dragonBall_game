@@ -9,5 +9,10 @@ package dragonballgame;
  * @author pietr
  */
 public class Events {
-    
+    static enum event{
+    enemyAppear,
+    trainingSession,
+    balzarBean,
+    dragonBall
+    }
 }
