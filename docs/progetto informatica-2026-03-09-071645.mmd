@@ -1,0 +1,97 @@
+---
+config:
+  layout: elk
+  theme: neo
+  look: neo
+---
+classDiagram
+direction LR
+    class Goku {
+	    +void auraCharge()
+	    +void attack()
+	    +void specialAbility()
+	    +void specialAttack()
+    }
+
+    class Vegeta {
+	    +void auraCharge()
+	    +void attack()
+	    +void specialAbility()
+	    +void specialAttack()
+    }
+
+    class Gohan {
+	    +void auraCharge()
+	    +void attack()
+	    +void specialAbility()
+	    +void specialAttack()
+    }
+
+    class Events {
+	    enemy
+	    dragonBalls
+	    training
+	    balzarBean
+    }
+
+    class gameManager {
+	    -Player player
+	    +void gameStart()
+	    +Character characterSelection(String character))
+    }
+
+    class Player {
+	    -String name
+	    +Player(String name)
+    }
+
+    class EventManager {
+	    +enemyAppear()
+	    +trainYourself()
+	    +eatBeans()
+	    +findBalls()
+    }
+
+    class Npc {
+	    -int hp
+    }
+
+    class Character {
+	    -int aura
+	    -int strength
+	    -int stamina
+	    -boolean transformation
+	    +void attack()*
+	    +void specialAttack()*
+	    +void auraCharge()*
+	    +void specialAbility()*
+    }
+
+    class Enemy {
+	    -name
+    }
+
+    class FileManager {
+	    -String saveFilePath
+	    -String loadFilePath
+	    +void loadCSV()
+	    +void saveCSV()
+	    +void loadBinary()
+	    +void saveBinary()
+    }
+
+	<<enum>> Events
+	<<Static>> EventManager
+	<<Abstract>> Character
+	<<Static>> FileManager
+
+    Character <|-- Goku
+    Character <|-- Vegeta
+    Character <|-- Gohan
+    gameManager -- Player
+    gameManager .. EventManager
+    gameManager -- FileManager
+    EventManager -- Events
+    Npc <|-- Character
+    gameManager <|-- Npc
+    Npc -- Enemy
