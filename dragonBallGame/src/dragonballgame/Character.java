@@ -8,12 +8,21 @@ package dragonballgame;
  *
  * @author pietr
  */
-public abstract class Character {
-    private int aura;
-    private int att;
-    private int stamina;
-    private boolean transformation;
-    
+public abstract class Character extends Npc{
+    protected int aura;
+    protected int att;
+    protected int stamina;
+    protected boolean transformation;
+    protected int nBalls;
+
+    public Character(int aura, int att, int stamina, int hp) {
+        super(hp);
+        this.aura = aura;
+        this.att = att;
+        this.stamina = stamina;
+        this.transformation = false;
+    }
+
     public abstract void attack();
     public abstract void specialAttack();
     public abstract void specialAbility();

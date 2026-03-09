@@ -6,9 +6,11 @@ package dragonballgame;
 
 /**
  *
- * @author pietr
+ * @author polenzani.pietro
  */
-public class GameManager {
-     Player player;
-     Character character;
+public class FileManager {
+    private String loadCSVpath;
+    private String saveCSVpath;
+    private String loadBinaryPath;
+    private String saveBinaryPath;
 }

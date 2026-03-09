@@ -6,9 +6,13 @@ package dragonballgame;
 
 /**
  *
- * @author pietr
+ * @author polenzani.pietro
  */
-public class GameManager {
-     Player player;
-     Character character;
+public class Npc {
+    private int hp;
+
+    public Npc(int hp) {
+        this.hp = hp;
+    }
+    
 }

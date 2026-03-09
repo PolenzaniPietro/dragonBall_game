@@ -6,15 +6,14 @@ package dragonballgame;
 
 /**
  *
- * @author pietr
+ * @author polenzani.pietro
  */
-public class Goku extends Character{
+public class Vegeta extends Character{
 
-    public Goku(int aura, int att, int stamina, int hp) {
+    public Vegeta(int aura, int att, int stamina, int hp) {
         super(aura, att, stamina, hp);
     }
 
-    
     public void attack(){
         
     }

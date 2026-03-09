@@ -6,9 +6,14 @@ package dragonballgame;
 
 /**
  *
- * @author pietr
+ * @author polenzani.pietro
  */
-public class GameManager {
-     Player player;
-     Character character;
+public class Enemy extends Npc{
+    private int name;
+
+    public Enemy(int name, int hp) {
+        super(hp);
+        this.name = name;
+    }
+    
 }
