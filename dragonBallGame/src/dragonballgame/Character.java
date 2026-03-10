@@ -50,7 +50,12 @@ public abstract class Character extends Npc{
     
     public void specialAttack(Enemy e){
         e.isAlive=false;
-        this.stamina-=50;
+        if(stamina-50>0){
+            this.stamina-=50;
+        }
+        else {
+            stamina = 0;
+        }
         this.transformation=false;
     }
     public abstract void specialAbility();
@@ -59,4 +64,5 @@ public abstract class Character extends Npc{
             aura+= aura-20;
         }
         else aura+=40;
-    }}
+    }
+}

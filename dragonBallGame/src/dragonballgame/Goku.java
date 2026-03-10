@@ -12,9 +12,7 @@ public class Goku extends Character{
 
     public Goku(int aura, int att, int stamina, int nBalls, int hp) {
         super(aura, att, stamina, nBalls, hp);
-    }
-
-    
+    }   
     
 
     public  void specialAbility(){
@@ -24,5 +22,4 @@ public class Goku extends Character{
         att-=i;
         aura*=2;
     }
-
 }

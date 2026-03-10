@@ -9,8 +9,6 @@ package dragonballgame;
  * @author polenzani.pietro
  */
 public class FileManager {
-    private String loadCSVpath;
-    private String saveCSVpath;
-    private String loadBinaryPath;
-    private String saveBinaryPath;
+    private String CSVpath;
+    private String binaryPath;
 }
