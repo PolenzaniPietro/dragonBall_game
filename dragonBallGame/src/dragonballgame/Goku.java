@@ -10,21 +10,15 @@ package dragonballgame;
  */
 public class Goku extends Character{
 
-    public Goku(int aura, int att, int stamina, int hp) {
-        super(aura, att, stamina, hp);
+    public Goku(int aura, int att, int stamina, int nBalls, int hp) {
+        super(aura, att, stamina, nBalls, hp);
     }
 
     
-    public void attack(){
-        
-    }
-    public void specialAttack(){
-        
-    }
+    
+
     public  void specialAbility(){
-        
+        this.transformation=true;
     }
-    public  void auraCharge(){
-        
-    }
+
 }

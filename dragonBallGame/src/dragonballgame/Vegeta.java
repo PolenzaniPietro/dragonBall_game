@@ -10,20 +10,13 @@ package dragonballgame;
  */
 public class Vegeta extends Character{
 
-    public Vegeta(int aura, int att, int stamina, int hp) {
-        super(aura, att, stamina, hp);
+    public Vegeta(int aura, int att, int stamina, int nBalls, int hp) {
+        super(aura, att, stamina, nBalls, hp);
     }
 
-    public void attack(){
-        
-    }
-    public void specialAttack(){
-        
-    }
+
     public  void specialAbility(){
         
     }
-    public  void auraCharge(){
-        
-    }
+
 }

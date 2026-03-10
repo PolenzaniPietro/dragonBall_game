@@ -9,10 +9,14 @@ package dragonballgame;
  * @author polenzani.pietro
  */
 public class Npc {
-    private int hp;
+    protected int hp;
+    protected int StartHp;
+    protected boolean isAlive;
 
     public Npc(int hp) {
-        this.hp = hp;
+        this.StartHp = hp;
+        this.hp=StartHp;
+        this.isAlive=true;
     }
     
 }

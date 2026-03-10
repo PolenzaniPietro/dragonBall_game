@@ -29,15 +29,5 @@ public class EventManager {
     }
     
     
-    public int addDragonBall(Character c){        
-        return c.nBalls++; 
-    }
     
-    
-    public int balzarBean(Character c){
-        
-    }
-    public void trainingSession(){
-        
-    }
 }

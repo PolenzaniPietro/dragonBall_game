@@ -11,4 +11,25 @@ package dragonballgame;
 public class GameManager {
      Player player;
      Character character;
+     
+     public int addDragonBall(){        
+        return character.nBalls++; 
+    }
+    
+    
+    public Character balzarBean(){
+        character.resetHp();
+        character.resetStamina();
+        return character;
+    }
+    public Character trainingSession(){
+        character.aura += 15;
+        character.stamina-=20;
+        return character;
+    }
+    //da implementare dopo aver implementato tutti i metodi dei vari personaggi
+    public Character enemyAppear(){ 
+        
+        return character;
+    }
 }
