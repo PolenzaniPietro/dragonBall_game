@@ -47,9 +47,11 @@ public abstract class Character extends Npc{
         }
         this.stamina-=10;
     }
+    
     public void specialAttack(Enemy e){
         e.isAlive=false;
         this.stamina-=50;
+        this.transformation=false;
     }
     public abstract void specialAbility();
     public  void auraCharge(){

@@ -24,12 +24,16 @@ public class GameManager {
     }
     public Character trainingSession(){
         character.aura += 15;
-        character.stamina-=20;
+        if(character.stamina-20>0){
+            character.stamina-=20;
+        }
+        else {
+            character.stamina=0;        
+        }            
         return character;
     }
     //da implementare dopo aver implementato tutti i metodi dei vari personaggi
-    public Character enemyAppear(){ 
-        
+    public Character enemyAppear(){         
         return character;
     }
 }

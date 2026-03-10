@@ -16,7 +16,9 @@ public class Gohan extends Character{
     
 
     public  void specialAbility(){
-        
+        this.transformation=true;
+        this.att=att*5;
+        aura*=2;
     }
 
 }

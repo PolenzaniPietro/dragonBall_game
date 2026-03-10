@@ -19,6 +19,10 @@ public class Goku extends Character{
 
     public  void specialAbility(){
         this.transformation=true;
+        this.stamina*=5;
+        int i = att/3;
+        att-=i;
+        aura*=2;
     }
 
 }
