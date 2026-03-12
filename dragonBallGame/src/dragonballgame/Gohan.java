@@ -14,7 +14,7 @@ public class Gohan extends Character{
         super(aura, att, stamina, nBalls, hp);
     }
     
-    
+    @Override
     public  void specialAbility(){
         this.transformation=true;
         this.att=att*5;

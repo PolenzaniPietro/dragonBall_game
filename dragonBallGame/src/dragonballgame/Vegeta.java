@@ -14,7 +14,7 @@ public class Vegeta extends Character{
         super(aura, att, stamina, nBalls, hp);
     }
 
-
+    @Override
     public  void specialAbility(){
         this.transformation=true;
         att*=5;

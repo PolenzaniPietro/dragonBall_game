@@ -16,7 +16,6 @@ public class GameManager {
         this.player = player;
         this.character = character;
     }
-
     
      public int addDragonBall(){        
         return character.nBalls++; 
@@ -38,7 +37,7 @@ public class GameManager {
         }            
         return character;
     }
-    //da implementare dopo aver implementato tutti i metodi dei vari personaggi
+    //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public Character enemyAppear(Enemy e){
         if(e.isAlive==false){
             player.score+=10;
