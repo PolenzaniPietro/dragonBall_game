@@ -9,6 +9,7 @@ package dragonballgame;
  * @author pietr
  */
 public class Player {
-    private String name;
-    private int score;
+    protected String name;
+    protected int score;
+    
 }

@@ -11,7 +11,13 @@ package dragonballgame;
 public class GameManager {
      Player player;
      Character character;
-     
+
+    public GameManager(Player player, Character character) {
+        this.player = player;
+        this.character = character;
+    }
+
+    
      public int addDragonBall(){        
         return character.nBalls++; 
     }
@@ -33,7 +39,10 @@ public class GameManager {
         return character;
     }
     //da implementare dopo aver implementato tutti i metodi dei vari personaggi
-    public Character enemyAppear(){         
+    public Character enemyAppear(Enemy e){
+        if(e.isAlive==false){
+            player.score+=10;
+        }
         return character;
     }
 }

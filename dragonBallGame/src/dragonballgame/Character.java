@@ -27,8 +27,6 @@ public abstract class Character extends Npc{
         this.transformation=false;
     }
 
-    
-
     public int resetStamina(){
         this.stamina=startStamina;
         return stamina;
