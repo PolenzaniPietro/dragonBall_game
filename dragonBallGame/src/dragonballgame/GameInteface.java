@@ -26,21 +26,62 @@ public class GameInteface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_hp = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_stamina = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lbl_aura = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lbl_dragonBalls = new javax.swing.JLabel();
+        btn_nextRound = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("hp:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        lbl_hp.setText("0");
+        jPanel1.add(lbl_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 6, -1, -1));
+
+        jLabel2.setText(" stamina:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        lbl_stamina.setText("0");
+        jPanel1.add(lbl_stamina, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 20, 20));
+
+        jLabel3.setText(" aura");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        lbl_aura.setText("0");
+        jPanel1.add(lbl_aura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 40, -1));
+
+        jLabel4.setText("dragonBalls");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        lbl_dragonBalls.setText("0");
+        jPanel1.add(lbl_dragonBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 20, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 130));
+
+        btn_nextRound.setText("jButton1");
+        btn_nextRound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nextRoundActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 200, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_nextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextRoundActionPerformed
+        
+    }//GEN-LAST:event_btn_nextRoundActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +119,15 @@ public class GameInteface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_nextRound;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_aura;
+    private javax.swing.JLabel lbl_dragonBalls;
+    private javax.swing.JLabel lbl_hp;
+    private javax.swing.JLabel lbl_stamina;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,20 +22,11 @@ public class GameManager {
     }
     
     
-    public Character balzarBean(){
-        character.resetHp();
-        character.resetStamina();
-        return character;
+    public void balzarBean(){
+        character.balzarBean();
     }
-    public Character trainingSession(){
-        character.aura += 15;
-        if(character.stamina-20>0){
-            character.stamina-=20;
-        }
-        else {
-            character.stamina=0;        
-        }            
-        return character;
+    public void trainingSession(){
+        character.trainingSession();
     }
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public Character enemyAppear(Enemy e){

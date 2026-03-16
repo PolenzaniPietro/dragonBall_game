@@ -18,5 +18,13 @@ public class Npc {
         this.hp=StartHp;
         this.isAlive=true;
     }
-    
+    public int damage(int n){
+        if(hp-n<0){
+            this.hp-=n;
+        }
+        else {
+            hp=0;
+        }
+        return hp;
+    }
 }

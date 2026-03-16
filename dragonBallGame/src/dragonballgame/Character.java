@@ -38,7 +38,7 @@ public abstract class Character extends Npc{
 
     public void attack(Enemy e){
         if(e.hp-20 > 0){
-            e.hp-=20;
+            e.damage(20);
         }
         else{
             e.isAlive=false;
@@ -63,4 +63,20 @@ public abstract class Character extends Npc{
         }
         else aura+=40;
     }
+    public Character balzarBean(){
+        this.resetHp();
+        this.resetStamina();
+        return this;
+    }
+    public Character trainingSession(){
+        this.aura += 15;
+        if(this.stamina-20>0){
+            this.stamina-=20;
+        }
+        else {
+            this.stamina=0;        
+        }            
+        return this;
+    }
+    
 }

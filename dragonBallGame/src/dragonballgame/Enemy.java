@@ -4,16 +4,20 @@
  */
 package dragonballgame;
 
+import java.util.Random;
+
 /**
  *
  * @author polenzani.pietro
  */
 public class Enemy extends Npc{
-    private int name;
+    private EnemiesNames name;
+    Random random= new Random();
 
-    public Enemy(int name, int hp) {
+    public Enemy(int hp) {
         super(hp);
-        this.name = name;
+        int i= random.nextInt(EnemiesNames.values().length);
+        this.name = EnemiesNames.values()[i];
     }
     
 }

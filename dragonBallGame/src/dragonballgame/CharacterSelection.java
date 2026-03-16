@@ -4,17 +4,27 @@
  */
 package dragonballgame;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author polenzani.pietro
  */
 public class CharacterSelection extends javax.swing.JFrame {
-
+    GameInteface g = new GameInteface();
     /**
      * Creates new form CharacterSelection
      */
+    
     public CharacterSelection() {
         initComponents();
+        ImageIcon icon1 = new ImageIcon("immagini/goku_base.png");
+        ImageIcon icon2 = new ImageIcon("immagini/gohan_base.png");
+        ImageIcon icon3 = new ImageIcon("immagini/vegeta_base.png");      
+        btn_character1.setIcon(icon1);    
+        btn_character2.setIcon(icon2);
+        btn_character3.setIcon(icon3);
     }
 
     /**
@@ -26,29 +36,36 @@ public class CharacterSelection extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_character1 = new javax.swing.JButton();
+        btn_character2 = new javax.swing.JButton();
+        btn_character3 = new javax.swing.JButton();
         btn_start = new javax.swing.JButton();
-        btn_selection = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 150, 180));
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_character1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_character1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 180));
+        getContentPane().add(btn_character1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 150, 180));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 160, 180));
+        btn_character2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_character2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_character2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 150, 180));
+
+        btn_character3.setToolTipText("");
+        btn_character3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_character3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_character3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 160, 180));
 
         btn_start.setFont(new java.awt.Font("Stencil", 2, 48)); // NOI18N
         btn_start.setText("START");
@@ -57,26 +74,32 @@ public class CharacterSelection extends javax.swing.JFrame {
                 btn_startActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 530, 120));
+        getContentPane().add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 540, 120));
 
-        btn_selection.setText("select");
-        getContentPane().add(btn_selection, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 150, 60));
-
-        jLabel1.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Georgia", 3, 43)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 153, 51));
         jLabel1.setText("CHOOSE YOUR CHARACTER ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 570, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_character2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        g.setVisible(true);
     }//GEN-LAST:event_btn_startActionPerformed
+
+    private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
+        
+    }//GEN-LAST:event_btn_character1ActionPerformed
+
+    private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_character3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,11 +136,10 @@ public class CharacterSelection extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_selection;
+    private javax.swing.JButton btn_character1;
+    private javax.swing.JButton btn_character2;
+    private javax.swing.JButton btn_character3;
     private javax.swing.JButton btn_start;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

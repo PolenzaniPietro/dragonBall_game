@@ -15,7 +15,7 @@ public class EventManager {
     public static event randomEvent(){
         int rnd = new Random().nextInt(event.values().length);
         event eventoRandom = event.values()[rnd];  
-        if(eventoRandom.equals("dragonBall")){
+        if(eventoRandom.equals(event.dragonBall)){
             int i = new Random().nextInt(100);
             if(i<50){
                  rnd = new Random().nextInt(event.values().length);
