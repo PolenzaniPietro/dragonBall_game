@@ -30,9 +30,9 @@ public class GameManager {
     }
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public Character enemyAppear(Enemy e){
-        if(e.isAlive==false){
+        /*if(e.isAlive==false){
             player.score+=10;
-        }
+        }*/
         return character;
     }
 }

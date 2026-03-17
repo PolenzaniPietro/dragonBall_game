@@ -11,5 +11,14 @@ package dragonballgame;
 public class Player {
     protected String name;
     protected int score;
+
+    public Player(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
+
+    public Player() {
+    }
+    
     
 }

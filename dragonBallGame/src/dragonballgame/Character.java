@@ -53,7 +53,7 @@ public abstract class Character extends Npc{
         }
         else {
             stamina = 0;
-        }
+       }
         this.transformation=false;
     }
     public abstract void specialAbility();

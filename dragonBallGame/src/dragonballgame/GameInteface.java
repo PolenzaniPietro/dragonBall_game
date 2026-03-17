@@ -4,17 +4,24 @@
  */
 package dragonballgame;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 /**
  *
  * @author polenzani.pietro
  */
 public class GameInteface extends javax.swing.JFrame {
-
+    Player player = new Player();
+    // GameManager gameManager= new GameManager(player);
+    
     /**
      * Creates new form GameInteface
      */
     public GameInteface() {
         initComponents();
+        ImageIcon icon1 = new ImageIcon("immagini/goku_base.png");
+        ImageIcon icon2 = new ImageIcon("immagini/gohan_base.png");
+        ImageIcon icon3 = new ImageIcon("immagini/vegeta_base.png");   
     }
 
     /**
@@ -36,6 +43,7 @@ public class GameInteface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbl_dragonBalls = new javax.swing.JLabel();
         btn_nextRound = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,15 +74,16 @@ public class GameInteface extends javax.swing.JFrame {
         lbl_dragonBalls.setText("0");
         jPanel1.add(lbl_dragonBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 20, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 130));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 130));
 
-        btn_nextRound.setText("jButton1");
+        btn_nextRound.setText("CONTINUE");
         btn_nextRound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nextRoundActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 200, 80));
+        getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 200, 80));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 190, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +134,7 @@ public class GameInteface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_aura;
     private javax.swing.JLabel lbl_dragonBalls;
     private javax.swing.JLabel lbl_hp;

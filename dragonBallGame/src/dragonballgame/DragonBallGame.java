@@ -15,9 +15,9 @@ public class DragonBallGame {
      */
     public static void main(String[] args) {
         CharacterSelection characterSelection = new CharacterSelection();
-        characterSelection.setVisible(true);
         GameInteface form = new GameInteface();
-        form.setVisible(false);
+        StarterForm starter = new StarterForm();
+        starter.setVisible(true);
     }
     
 }
