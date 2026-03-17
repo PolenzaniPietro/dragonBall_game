@@ -4,6 +4,8 @@
  */
 package dragonballgame;
 
+import java.util.Random;
+
 /**
  *
  * @author pietr
@@ -29,10 +31,8 @@ public class GameManager {
         character.trainingSession();
     }
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
-    public Character enemyAppear(Enemy e){
-        /*if(e.isAlive==false){
-            player.score+=10;
-        }*/
-        return character;
+    public void enemyAppear(){
+        Random random = new Random();
+        Enemy e = new Enemy(random.nextInt(70, 200));
     }
 }

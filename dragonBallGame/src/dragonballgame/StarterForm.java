@@ -15,6 +15,7 @@ public class StarterForm extends javax.swing.JFrame {
      */
     GameInteface g = new GameInteface();
     CharacterSelection c = new CharacterSelection();
+    
     public StarterForm() {
         initComponents();
     }
