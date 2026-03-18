@@ -14,7 +14,7 @@ public class GameManager {
      Player player;
      Character character;
 
-    public GameManager(Player player, Character character) {
+    public GameManager(Character character) {
         this.player = player;
         this.character = character;
     }

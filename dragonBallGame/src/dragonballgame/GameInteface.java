@@ -27,16 +27,16 @@ public class GameInteface extends javax.swing.JFrame {
     this.imagePath = path;
 
     ImageIcon icon = new ImageIcon(path);
-    Image img = icon.getImage().getScaledInstance(
-        pnl_image.getWidth(),
-        pnl_image.getHeight(),
-        Image.SCALE_SMOOTH
-    );
-
+    Image img = icon.getImage().getScaledInstance( pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
     JLabel label = new JLabel(new ImageIcon(img));
     pnl_image.add(label);
     pnl_image.revalidate();     
     pnl_image.repaint();        
+}
+    public void updateStats(Character c) {
+    lbl_hp.setText(String.valueOf(c.getHp()));
+    lbl_stamina.setText(String.valueOf(c.getStamina()));
+    lbl_aura.setText(String.valueOf(c.getAura()));
 }
     /**
      * This method is called from within the constructor to initialize the form.

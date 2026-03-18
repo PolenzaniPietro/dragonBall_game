@@ -85,7 +85,9 @@ public class CharacterSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
+        Goku goku = new Goku();
         g.setImage("immagini/gohan_base.png");
+        g.updateStats(goku);
     }//GEN-LAST:event_btn_character2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -94,11 +96,16 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
+        Goku goku = new Goku();
         g.setImage("immagini/goku_base.png");
+        g.updateStats(goku);
+    
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
+        Goku goku = new Goku();
         g.setImage("immagini/vegeta_base.png");
+        g.updateStats(goku);
     }//GEN-LAST:event_btn_character3ActionPerformed
 
     /**
