@@ -21,4 +21,5 @@ public class Gohan extends Character{
         aura*=2;
     }
 
+    
 }

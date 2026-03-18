@@ -14,8 +14,8 @@ public class DragonBallGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CharacterSelection characterSelection = new CharacterSelection();
-        GameInteface form = new GameInteface();
+        
+        
         StarterForm starter = new StarterForm();
         starter.setVisible(true);
     }

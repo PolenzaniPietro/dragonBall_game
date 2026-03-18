@@ -13,17 +13,19 @@ import javax.swing.ImageIcon;
 public class GameInteface extends javax.swing.JFrame {
     Player player = new Player();
     // GameManager gameManager= new GameManager(player);
+    private String imagePath;
     
     /**
      * Creates new form GameInteface
      */
     public GameInteface() {
         initComponents();
-        ImageIcon icon1 = new ImageIcon("immagini/goku_base.png");
-        ImageIcon icon2 = new ImageIcon("immagini/gohan_base.png");
-        ImageIcon icon3 = new ImageIcon("immagini/vegeta_base.png");   
+        
     }
-
+    public void setImage(String path) {
+        this.imagePath = path;
+        this.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +45,7 @@ public class GameInteface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbl_dragonBalls = new javax.swing.JLabel();
         btn_nextRound = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pnl_image = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,7 +85,7 @@ public class GameInteface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 200, 80));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 190, 340));
+        getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,10 +136,10 @@ public class GameInteface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_aura;
     private javax.swing.JLabel lbl_dragonBalls;
     private javax.swing.JLabel lbl_hp;
     private javax.swing.JLabel lbl_stamina;
+    private javax.swing.JPanel pnl_image;
     // End of variables declaration//GEN-END:variables
 }

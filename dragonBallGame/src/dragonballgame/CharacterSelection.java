@@ -85,7 +85,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
-        // TODO add your handling code here:
+        g.setImage("immagini/gohan_base.png");
     }//GEN-LAST:event_btn_character2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -94,11 +94,11 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
-        
+        g.setImage("immagini/goku_base.png");
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
-        // TODO add your handling code here:
+        g.setImage("immagini/vegeta_base.png");
     }//GEN-LAST:event_btn_character3ActionPerformed
 
     /**

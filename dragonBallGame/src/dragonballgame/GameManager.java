@@ -33,6 +33,6 @@ public class GameManager {
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear(){
         Random random = new Random();
-        Enemy e = new Enemy(random.nextInt(70, 200));
+        //Enemy e = new Enemy(random.nextInt(70, 200));
     }
 }
