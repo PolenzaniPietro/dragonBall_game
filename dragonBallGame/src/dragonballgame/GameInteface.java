@@ -6,6 +6,7 @@ package dragonballgame;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 /**
  *
  * @author polenzani.pietro
@@ -23,9 +24,20 @@ public class GameInteface extends javax.swing.JFrame {
         
     }
     public void setImage(String path) {
-        this.imagePath = path;
-        this.repaint();
-    }
+    this.imagePath = path;
+
+    ImageIcon icon = new ImageIcon(path);
+    Image img = icon.getImage().getScaledInstance(
+        pnl_image.getWidth(),
+        pnl_image.getHeight(),
+        Image.SCALE_SMOOTH
+    );
+
+    JLabel label = new JLabel(new ImageIcon(img));
+    pnl_image.add(label);
+    pnl_image.revalidate();     
+    pnl_image.repaint();        
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
