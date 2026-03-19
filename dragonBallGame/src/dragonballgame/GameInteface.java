@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  */
 public class GameInteface extends javax.swing.JFrame {
     Player player = new Player();
-    // GameManager gameManager= new GameManager(player);
+    GameManager gameManager= new GameManager();
     private String imagePath;
     
     /**
@@ -27,16 +27,20 @@ public class GameInteface extends javax.swing.JFrame {
     this.imagePath = path;
 
     ImageIcon icon = new ImageIcon(path);
-    Image img = icon.getImage().getScaledInstance( pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
+    Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
     JLabel label = new JLabel(new ImageIcon(img));
     pnl_image.add(label);
-    pnl_image.revalidate();     
-    pnl_image.repaint();        
+    pnl_image.revalidate();            
 }
     public void updateStats(Character c) {
     lbl_hp.setText(String.valueOf(c.getHp()));
     lbl_stamina.setText(String.valueOf(c.getStamina()));
     lbl_aura.setText(String.valueOf(c.getAura()));
+    lbl_att.setText(String.valueOf(c.getAtt()));
+}
+    public void setUsername(String username) {
+    lbl_username.setText(username);
+    lbl_username.invalidate();
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,8 +60,13 @@ public class GameInteface extends javax.swing.JFrame {
         lbl_aura = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lbl_dragonBalls = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_att = new javax.swing.JLabel();
         btn_nextRound = new javax.swing.JButton();
         pnl_image = new javax.swing.JPanel();
+        lbl_username = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_events = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,6 +97,12 @@ public class GameInteface extends javax.swing.JFrame {
         lbl_dragonBalls.setText("0");
         jPanel1.add(lbl_dragonBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 20, -1));
 
+        jLabel5.setText("att");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+
+        lbl_att.setText("0");
+        jPanel1.add(lbl_att, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 50, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 130));
 
         btn_nextRound.setText("CONTINUE");
@@ -99,11 +114,22 @@ public class GameInteface extends javax.swing.JFrame {
         getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 200, 80));
         getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, 340));
 
+        lbl_username.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lbl_username.setText("USERNAME");
+        getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, 250, 140));
+
+        txt_events.setColumns(20);
+        txt_events.setRows(5);
+        jScrollPane1.setViewportView(txt_events);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 280, 350));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextRoundActionPerformed
-        
+        gameManager.eventSelection();
+        txt_events.setText(EventManager.randomEvent().toString());
     }//GEN-LAST:event_btn_nextRoundActionPerformed
 
     /**
@@ -147,11 +173,16 @@ public class GameInteface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_att;
     private javax.swing.JLabel lbl_aura;
     private javax.swing.JLabel lbl_dragonBalls;
     private javax.swing.JLabel lbl_hp;
     private javax.swing.JLabel lbl_stamina;
+    private javax.swing.JLabel lbl_username;
     private javax.swing.JPanel pnl_image;
+    private javax.swing.JTextArea txt_events;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,6 +26,16 @@ public abstract class Character extends Npc{
         this.nBalls = nBalls;
         this.transformation=false;
     }
+    
+    public int getAura() {
+        return aura;
+    }
+    public int getAtt() {
+        return att;
+    }
+    public int getStamina() {
+        return stamina;
+    }
 
     public int resetStamina(){
         this.stamina=startStamina;
@@ -79,17 +89,7 @@ public abstract class Character extends Npc{
         return this;
     }
 
-    public int getAura() {
-        return aura;
-    }
-
-    public int getAtt() {
-        return att;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
+    
 
     
     

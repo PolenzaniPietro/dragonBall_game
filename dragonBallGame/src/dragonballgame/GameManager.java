@@ -14,9 +14,7 @@ public class GameManager {
      Player player;
      Character character;
 
-    public GameManager(Character character) {
-        this.player = player;
-        this.character = character;
+    public GameManager() {
     }
     
      public int addDragonBall(){        
@@ -35,4 +33,22 @@ public class GameManager {
         Random random = new Random();
         //Enemy e = new Enemy(random.nextInt(70, 200));
     }
+    public void eventSelection(){
+        EventManager.randomEvent();
+        if(EventManager.randomEvent()== Events.event.balzarBean){
+            this.balzarBean();
+        }
+        else if(EventManager.randomEvent()== Events.event.dragonBall){
+            this.addDragonBall();
+        }
+        else if(EventManager.randomEvent()== Events.event.trainingSession){
+            this.trainingSession();
+        }
+        else if(EventManager.randomEvent()== Events.event.enemyAppear){
+            this.enemyAppear();
+        }
+        
+    }
+    
+    
 }

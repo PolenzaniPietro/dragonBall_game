@@ -14,8 +14,8 @@ public class StarterForm extends javax.swing.JFrame {
      * Creates new form StarterForm
      */
     GameInteface g = new GameInteface();
-    CharacterSelection c = new CharacterSelection();
-    
+    CharacterSelection c;
+    Player player= new Player();
     public StarterForm() {
         initComponents();
     }
@@ -32,9 +32,10 @@ public class StarterForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_newGame = new javax.swing.JButton();
         btn_loadCSV = new javax.swing.JButton();
-        btn_saveCSV = new javax.swing.JButton();
-        btn_saveBinary = new javax.swing.JButton();
         btn_loadBinary = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        fld_username = new javax.swing.JTextField();
+        btn_send = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -42,7 +43,7 @@ public class StarterForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 3, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setText("WELCOME TO DRAGONBALL GAME");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 580, 150));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 580, 150));
 
         btn_newGame.setFont(new java.awt.Font("Yu Gothic Medium", 3, 36)); // NOI18N
         btn_newGame.setText("NEW GAME");
@@ -61,12 +62,6 @@ public class StarterForm extends javax.swing.JFrame {
         });
         getContentPane().add(btn_loadCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 190, 60));
 
-        btn_saveCSV.setText("SAVE CSV");
-        getContentPane().add(btn_saveCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 190, 60));
-
-        btn_saveBinary.setText("SAVE BINARY");
-        getContentPane().add(btn_saveBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 180, 60));
-
         btn_loadBinary.setText("LOAD BINARY");
         btn_loadBinary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,11 +70,31 @@ public class StarterForm extends javax.swing.JFrame {
         });
         getContentPane().add(btn_loadBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 180, 60));
 
+        jLabel2.setText("USERNAME:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 100, 30));
+
+        fld_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fld_usernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fld_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 90, -1));
+
+        btn_send.setText("SEND");
+        btn_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sendActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newGameActionPerformed
         dispose();
+        if (c==null)
+            c= new CharacterSelection(g);
         c.setVisible(true);
     }//GEN-LAST:event_btn_newGameActionPerformed
 
@@ -92,6 +107,16 @@ public class StarterForm extends javax.swing.JFrame {
        dispose();
        g.setVisible(true);
     }//GEN-LAST:event_btn_loadBinaryActionPerformed
+
+    private void fld_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fld_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fld_usernameActionPerformed
+
+    private void btn_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sendActionPerformed
+    String username = fld_username.getText();
+    player.setName(username);   
+    g.setUsername(username);
+    }//GEN-LAST:event_btn_sendActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,8 +157,9 @@ public class StarterForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_loadBinary;
     private javax.swing.JButton btn_loadCSV;
     private javax.swing.JButton btn_newGame;
-    private javax.swing.JButton btn_saveBinary;
-    private javax.swing.JButton btn_saveCSV;
+    private javax.swing.JButton btn_send;
+    private javax.swing.JTextField fld_username;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

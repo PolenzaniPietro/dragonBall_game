@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  * @author polenzani.pietro
  */
 public class CharacterSelection extends javax.swing.JFrame {
-    GameInteface g = new GameInteface();
+    GameInteface g;
     /**
      * Creates new form CharacterSelection
      */
     
-    public CharacterSelection() {
+    public CharacterSelection(GameInteface gi) {
         initComponents();
         ImageIcon icon1 = new ImageIcon("immagini/goku_base.png");
         ImageIcon icon2 = new ImageIcon("immagini/gohan_base.png");
@@ -25,6 +25,7 @@ public class CharacterSelection extends javax.swing.JFrame {
         btn_character1.setIcon(icon1);    
         btn_character2.setIcon(icon2);
         btn_character3.setIcon(icon3);
+        g=gi;
     }
 
     /**
@@ -85,9 +86,9 @@ public class CharacterSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
-        Goku goku = new Goku();
+        Gohan gohan = new Gohan(80, 75, 85, 0, 80);
         g.setImage("immagini/gohan_base.png");
-        g.updateStats(goku);
+        g.updateStats(gohan);
     }//GEN-LAST:event_btn_character2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -96,52 +97,18 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
-        Goku goku = new Goku();
+        Goku goku = new Goku(85, 80, 90, 0, 85);
         g.setImage("immagini/goku_base.png");
         g.updateStats(goku);
     
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
-        Goku goku = new Goku();
+        Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80);
         g.setImage("immagini/vegeta_base.png");
-        g.updateStats(goku);
+        g.updateStats(vegeta);
     }//GEN-LAST:event_btn_character3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CharacterSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CharacterSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CharacterSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CharacterSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CharacterSelection().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_character1;
     private javax.swing.JButton btn_character2;
