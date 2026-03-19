@@ -113,7 +113,7 @@ public class StarterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_fld_usernameActionPerformed
 
     private void btn_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sendActionPerformed
-    String username = fld_username.getText();
+    String username = fld_username.getText().toUpperCase();
     player.setName(username);   
     g.setUsername(username);
     }//GEN-LAST:event_btn_sendActionPerformed

@@ -23,21 +23,23 @@ public class GameInteface extends javax.swing.JFrame {
         initComponents();
         
     }
+    
     public void setImage(String path) {
     this.imagePath = path;
-
     ImageIcon icon = new ImageIcon(path);
     Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
     JLabel label = new JLabel(new ImageIcon(img));
     pnl_image.add(label);
     pnl_image.revalidate();            
 }
+    
     public void updateStats(Character c) {
     lbl_hp.setText(String.valueOf(c.getHp()));
     lbl_stamina.setText(String.valueOf(c.getStamina()));
     lbl_aura.setText(String.valueOf(c.getAura()));
     lbl_att.setText(String.valueOf(c.getAtt()));
 }
+    
     public void setUsername(String username) {
     lbl_username.setText(username);
     lbl_username.invalidate();
@@ -118,6 +120,7 @@ public class GameInteface extends javax.swing.JFrame {
         lbl_username.setText("USERNAME");
         getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, 250, 140));
 
+        txt_events.setEditable(false);
         txt_events.setColumns(20);
         txt_events.setRows(5);
         jScrollPane1.setViewportView(txt_events);
@@ -129,7 +132,7 @@ public class GameInteface extends javax.swing.JFrame {
 
     private void btn_nextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextRoundActionPerformed
         gameManager.eventSelection();
-        txt_events.setText(EventManager.randomEvent().toString());
+        txt_events.setText(txt_events.getText() +"\n"+ EventManager.randomEvent().toString());
     }//GEN-LAST:event_btn_nextRoundActionPerformed
 
     /**

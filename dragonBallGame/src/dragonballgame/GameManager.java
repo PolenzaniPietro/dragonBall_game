@@ -31,22 +31,26 @@ public class GameManager {
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear(){
         Random random = new Random();
-        //Enemy e = new Enemy(random.nextInt(70, 200));
+        Enemy e = new Enemy(random.nextInt(70, 200));
     }
     public void eventSelection(){
         EventManager.randomEvent();
-        if(EventManager.randomEvent()== Events.event.balzarBean){
-            this.balzarBean();
-        }
-        else if(EventManager.randomEvent()== Events.event.dragonBall){
-            this.addDragonBall();
-        }
-        else if(EventManager.randomEvent()== Events.event.trainingSession){
-            this.trainingSession();
-        }
-        else if(EventManager.randomEvent()== Events.event.enemyAppear){
-            this.enemyAppear();
-        }
+        if(null!= EventManager.randomEvent())switch (EventManager.randomEvent()) {
+             case balzarBean:
+                 this.balzarBean();
+                 break;
+             case dragonBall:
+                 this.addDragonBall();
+                 break;
+             case trainingSession:
+                 this.trainingSession();
+                 break;
+             case enemyAppear:
+                 this.enemyAppear();
+                 break;
+             default:
+                 break;
+         }
         
     }
     
