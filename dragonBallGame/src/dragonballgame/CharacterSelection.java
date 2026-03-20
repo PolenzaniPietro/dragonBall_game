@@ -88,7 +88,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
         Gohan gohan = new Gohan(80, 75, 85, 0, 80);
         g.setImage("immagini/gohan_base.png");
-        g.updateStats(gohan);
+        g.setCharacter(gohan);
     }//GEN-LAST:event_btn_character2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -99,14 +99,13 @@ public class CharacterSelection extends javax.swing.JFrame {
     private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
         Goku goku = new Goku(85, 80, 90, 0, 85);
         g.setImage("immagini/goku_base.png");
-        g.updateStats(goku);
-    
+        g.setCharacter(goku);
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
         Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80);
         g.setImage("immagini/vegeta_base.png");
-        g.updateStats(vegeta);
+        g.setCharacter(vegeta);
     }//GEN-LAST:event_btn_character3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -47,13 +47,24 @@ public abstract class Character extends Npc{
     }
 
     public void attack(Enemy e){
-        if(e.hp-20 > 0){
-            e.damage(20);
-        }
+        if(transformation==false){
+            if(e.hp-20 > 0){
+                e.damage(20);
+            }
+            else{
+                e.isAlive=false;
+            }
+            this.stamina-=10;
+            }
         else{
-            e.isAlive=false;
+            if(e.hp-25 > 0){
+                e.damage(25);
+            }
+            else{
+                e.isAlive=false;
+            }
+            this.stamina-=10;   
         }
-        this.stamina-=10;
     }
     
     public void specialAttack(Enemy e){
@@ -89,8 +100,4 @@ public abstract class Character extends Npc{
         return this;
     }
 
-    
-
-    
-    
 }

@@ -32,14 +32,16 @@ public class GameInteface extends javax.swing.JFrame {
     pnl_image.add(label);
     pnl_image.revalidate();            
 }
-    
+    public void setCharacter(Character c){
+    gameManager.setCharacter(c);
+    updateStats(c);
+}
     public void updateStats(Character c) {
     lbl_hp.setText(String.valueOf(c.getHp()));
     lbl_stamina.setText(String.valueOf(c.getStamina()));
     lbl_aura.setText(String.valueOf(c.getAura()));
     lbl_att.setText(String.valueOf(c.getAtt()));
 }
-    
     public void setUsername(String username) {
     lbl_username.setText(username);
     lbl_username.invalidate();
@@ -117,7 +119,7 @@ public class GameInteface extends javax.swing.JFrame {
         getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, 340));
 
         lbl_username.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lbl_username.setText("USERNAME");
+        lbl_username.setText("PLAYER 1");
         getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, 250, 140));
 
         txt_events.setEditable(false);
@@ -131,8 +133,9 @@ public class GameInteface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextRoundActionPerformed
-        gameManager.eventSelection();
-        txt_events.setText(txt_events.getText() +"\n"+ EventManager.randomEvent().toString());
+        Events.event ev = gameManager.eventSelection();
+        txt_events.setText(txt_events.getText() + "\n" + ev);
+        updateStats(gameManager.character);
     }//GEN-LAST:event_btn_nextRoundActionPerformed
 
     /**
