@@ -11,18 +11,27 @@ import java.util.Random;
  * @author pietr
  */
 public class GameManager {
-     Player player;
-     Character character;
+     private Player player;
+     public Character character;
+     private Enemy currentEnemy = null;
+     private int killedEnemies = 0;
 
     public GameManager() {
     }
     public void setCharacter(Character c){
         this.character = c;
     }
-     public int addDragonBall(){        
+     public int addDragonBall(){ 
+        if(character.nBalls+1<8){
         return character.nBalls++; 
+         }
+        return 7;
     }
     
+     public Enemy getCurrentEnemy()
+     {
+         return currentEnemy;
+     }
     
     public void balzarBean(){
         character.balzarBean();
@@ -33,7 +42,7 @@ public class GameManager {
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear(){
         Random random = new Random();
-        Enemy e = new Enemy(random.nextInt(70, 200));
+        currentEnemy = new Enemy(random.nextInt(70, 200));
     }
     public Events.event eventSelection(){
     Events.event ev = EventManager.randomEvent(); 

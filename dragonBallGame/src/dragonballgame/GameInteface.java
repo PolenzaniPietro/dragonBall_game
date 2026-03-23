@@ -7,6 +7,7 @@ package dragonballgame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author polenzani.pietro
@@ -21,7 +22,8 @@ public class GameInteface extends javax.swing.JFrame {
      */
     public GameInteface() {
         initComponents();
-        
+        this.btn_attack.setEnabled(false);
+        this.btn_specialAttack.setEnabled(false);
     }
     
     public void setImage(String path) {
@@ -41,11 +43,13 @@ public class GameInteface extends javax.swing.JFrame {
     lbl_stamina.setText(String.valueOf(c.getStamina()));
     lbl_aura.setText(String.valueOf(c.getAura()));
     lbl_att.setText(String.valueOf(c.getAtt()));
+    lbl_dragonBalls.setText(String.valueOf(c.getBalls()));
 }
     public void setUsername(String username) {
     lbl_username.setText(username);
     lbl_username.invalidate();
 }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,43 +75,47 @@ public class GameInteface extends javax.swing.JFrame {
         lbl_username = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_events = new javax.swing.JTextArea();
+        btn_attack = new javax.swing.JButton();
+        btn_specialAttack = new javax.swing.JButton();
+        btn_specilability = new javax.swing.JButton();
+        pnl_enemy = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("hp:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        jLabel1.setText(" hp:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
 
         lbl_hp.setText("0");
-        jPanel1.add(lbl_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 6, -1, -1));
+        jPanel1.add(lbl_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         jLabel2.setText(" stamina:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
 
         lbl_stamina.setText("0");
-        jPanel1.add(lbl_stamina, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 20, 20));
+        jPanel1.add(lbl_stamina, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 100, 20));
 
         jLabel3.setText(" aura");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
         lbl_aura.setText("0");
-        jPanel1.add(lbl_aura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 40, -1));
+        jPanel1.add(lbl_aura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 40, -1));
 
-        jLabel4.setText("dragonBalls");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        jLabel4.setText(" dragonBalls");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
         lbl_dragonBalls.setText("0");
-        jPanel1.add(lbl_dragonBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 20, -1));
+        jPanel1.add(lbl_dragonBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 20, -1));
 
-        jLabel5.setText("att");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+        jLabel5.setText(" att");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
         lbl_att.setText("0");
-        jPanel1.add(lbl_att, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 50, -1));
+        jPanel1.add(lbl_att, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 50, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 130));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 210, 220));
 
         btn_nextRound.setText("CONTINUE");
         btn_nextRound.addActionListener(new java.awt.event.ActionListener() {
@@ -115,19 +123,44 @@ public class GameInteface extends javax.swing.JFrame {
                 btn_nextRoundActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 200, 80));
-        getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, 340));
+        getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 780, 170, 60));
+        getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 220, 410));
 
         lbl_username.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbl_username.setText("PLAYER 1");
-        getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, 250, 140));
+        getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 250, 140));
 
         txt_events.setEditable(false);
         txt_events.setColumns(20);
         txt_events.setRows(5);
         jScrollPane1.setViewportView(txt_events);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 280, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 370, 860));
+
+        btn_attack.setText("ATTACK");
+        btn_attack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_attackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_attack, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 780, 160, 60));
+
+        btn_specialAttack.setText("SPECIAL ATTACK");
+        btn_specialAttack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_specialAttackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_specialAttack, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 780, 150, 60));
+
+        btn_specilability.setText("SPECIAL ABILITY");
+        btn_specilability.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_specilabilityActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_specilability, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 780, 160, 60));
+        getContentPane().add(pnl_enemy, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 270, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,45 +169,53 @@ public class GameInteface extends javax.swing.JFrame {
         Events.event ev = gameManager.eventSelection();
         txt_events.setText(txt_events.getText() + "\n" + ev);
         updateStats(gameManager.character);
+        if(ev.equals(Events.event.enemyAppear)){
+            this.btn_attack.setEnabled(true);
+            
+        }
+        if(gameManager.character.getBalls()==7){
+            JOptionPane.showMessageDialog(this, "YOU'VE FOUND ALL THE DRAGON BALLS, CONGRATULATIONS!!! YOUR MISSION IS COMPLETED, FOR NOW...");
+            dispose();
+        }
+        if(gameManager.character.transformation==false){
+            this.btn_specilability.setEnabled(true);
+        }
     }//GEN-LAST:event_btn_nextRoundActionPerformed
+
+    private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
+        gameManager.character.attack(gameManager.getCurrentEnemy());
+        updateStats(gameManager.character);
+        if(gameManager.character.getHp()==0){
+            JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR SAKE...");
+            dispose();
+        }
+    }//GEN-LAST:event_btn_attackActionPerformed
+
+    private void btn_specialAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specialAttackActionPerformed
+        gameManager.character.specialAttack(gameManager.getCurrentEnemy());
+        updateStats(gameManager.character);
+        this.btn_specilability.setEnabled(true);
+        this.btn_specialAttack.setEnabled(false);
+    }//GEN-LAST:event_btn_specialAttackActionPerformed
+
+    private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
+        gameManager.character.specialAbility();
+        updateStats(gameManager.character);
+        if(gameManager.character.transformation==true){
+                this.btn_specialAttack.setEnabled(true);
+            }
+        this.btn_specilability.setEnabled(false);
+    }//GEN-LAST:event_btn_specilabilityActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GameInteface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GameInteface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GameInteface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GameInteface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GameInteface().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_attack;
     private javax.swing.JButton btn_nextRound;
+    private javax.swing.JButton btn_specialAttack;
+    private javax.swing.JButton btn_specilability;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -188,6 +229,7 @@ public class GameInteface extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_hp;
     private javax.swing.JLabel lbl_stamina;
     private javax.swing.JLabel lbl_username;
+    private javax.swing.JPanel pnl_enemy;
     private javax.swing.JPanel pnl_image;
     private javax.swing.JTextArea txt_events;
     // End of variables declaration//GEN-END:variables

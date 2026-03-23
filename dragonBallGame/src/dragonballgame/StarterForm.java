@@ -4,6 +4,8 @@
  */
 package dragonballgame;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author polenzani.pietro
@@ -36,6 +38,7 @@ public class StarterForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         fld_username = new javax.swing.JTextField();
         btn_send = new javax.swing.JButton();
+        btn_istruction = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,6 +91,14 @@ public class StarterForm extends javax.swing.JFrame {
         });
         getContentPane().add(btn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
+        btn_istruction.setText("ISTRUCTION");
+        btn_istruction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_istructionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_istruction, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 480, 60));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,42 +129,17 @@ public class StarterForm extends javax.swing.JFrame {
     g.setUsername(username);
     }//GEN-LAST:event_btn_sendActionPerformed
 
+    private void btn_istructionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_istructionActionPerformed
+        JOptionPane.showMessageDialog(this, "WELCOME WARRIOR, CHOOSE YOUR TRAVEL COMPANION BETWEEN GOKU, GOHAN OR VEGETA, IN SEARCH OF THE 7 DRAGON BALLS. \n DURING THE JOURNEY YOU WILL ENCOUNTER MANY CRUEL ENEMIES BUT YOU WILL HAVE THE OPPORTUNITY TO TRAIN AND HEAL YOURSELF, AND WHO KNOWS, MAYBE YOU WILL DISCOVER YOUR HIDDEN STRENGTH...");
+    }//GEN-LAST:event_btn_istructionActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StarterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StarterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StarterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StarterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StarterForm().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_istruction;
     private javax.swing.JButton btn_loadBinary;
     private javax.swing.JButton btn_loadCSV;
     private javax.swing.JButton btn_newGame;

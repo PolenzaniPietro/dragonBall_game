@@ -30,6 +30,9 @@ public abstract class Character extends Npc{
     public int getAura() {
         return aura;
     }
+    public int getBalls(){
+        return nBalls;
+    }
     public int getAtt() {
         return att;
     }
@@ -47,8 +50,12 @@ public abstract class Character extends Npc{
     }
 
     public void attack(Enemy e){
+        
         if(transformation==false){
-            if(e.hp-20 > 0){
+            if(stamina< 15){
+                e.damage(5);
+            }
+            else if(e.hp-20 > 0){
                 e.damage(20);
             }
             else{
@@ -58,13 +65,15 @@ public abstract class Character extends Npc{
             }
         else{
             if(e.hp-25 > 0){
-                e.damage(25);
+                e.damage(e.hp-this.att/2);
             }
             else{
                 e.isAlive=false;
             }
             this.stamina-=10;   
+            this.hp-=10;
         }
+        if(stamina<=0)stamina=0;
     }
     
     public void specialAttack(Enemy e){

@@ -86,7 +86,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
-        Gohan gohan = new Gohan(80, 75, 85, 0, 80);
+        Gohan gohan = new Gohan(80, 70, 85, 0, 80);
         g.setImage("immagini/gohan_base.png");
         g.setCharacter(gohan);
     }//GEN-LAST:event_btn_character2ActionPerformed

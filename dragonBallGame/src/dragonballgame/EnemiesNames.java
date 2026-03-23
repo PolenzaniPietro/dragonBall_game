@@ -13,5 +13,6 @@ public enum EnemiesNames {
         majinBuu,
         broly,
         janemba,
-        cell;
+        cell,
+        grottelli;
 }

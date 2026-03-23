@@ -13,7 +13,7 @@ import java.util.Random;
 public class Enemy extends Npc{
     private EnemiesNames name;
     Random random= new Random();
-
+        
     public Enemy(int hp) {
         super(hp);
         int i= random.nextInt(EnemiesNames.values().length);
