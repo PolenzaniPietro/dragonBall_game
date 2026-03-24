@@ -16,12 +16,14 @@ public class Vegeta extends Character{
 
     @Override
     public  void specialAbility(){
-        this.transformation=true;
-        att*=5;
-        hp/=2;
-        int i = stamina/3;
-        stamina-=i;
-        aura*=2;
+        if(aura>=150){
+            this.transformation=true;
+            att*=5;
+            hp/=2;
+            int i = stamina/3;
+            stamina-=i;
+            aura*=2;
+        }
     }
 
 }

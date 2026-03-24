@@ -15,4 +15,4 @@ public enum EnemiesNames {
         janemba,
         cell,
         grottelli;
-}
+    }

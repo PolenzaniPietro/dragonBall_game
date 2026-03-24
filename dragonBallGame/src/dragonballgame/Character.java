@@ -92,8 +92,8 @@ public abstract class Character extends Npc{
     
     public abstract void specialAbility();
     public  void auraCharge(){
-        if(aura-20<10){
-            aura+= aura-20;
+        if(aura-15<10){
+            aura+= aura-15;
         }
         else aura+=40;
     }
@@ -112,5 +112,4 @@ public abstract class Character extends Npc{
         }            
         return this;
     }
-
 }

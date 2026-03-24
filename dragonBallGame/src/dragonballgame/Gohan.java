@@ -16,10 +16,10 @@ public class Gohan extends Character{
     
     @Override
     public  void specialAbility(){
-        this.transformation=true;
-        this.att=att*5;
-        aura*=2;
+        if(aura>=150){
+            this.transformation=true;
+            this.att=att*5;
+            aura*=2; 
+        }
     }
-
-    
 }
