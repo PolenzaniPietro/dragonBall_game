@@ -183,33 +183,32 @@ public class GameInteface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_nextRoundActionPerformed
 
     private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
-        gameManager.character.attack(gameManager.getCurrentEnemy());
+        gameManager.attack(gameManager.getCurrentEnemy());
         updateStats(gameManager.character);
+        if(this.gameManager.character.getStamina()==0){
+            this.btn_attack.setEnabled(false);
+        }
         if(gameManager.character.getHp()==0){
-            JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR SAKE...");
+            JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR WEAKNESS...");
             dispose();
         }
     }//GEN-LAST:event_btn_attackActionPerformed
 
     private void btn_specialAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specialAttackActionPerformed
-        gameManager.character.specialAttack(gameManager.getCurrentEnemy());
+        gameManager.specialAttack(gameManager.getCurrentEnemy());
         updateStats(gameManager.character);
         this.btn_specilability.setEnabled(true);
         this.btn_specialAttack.setEnabled(false);
     }//GEN-LAST:event_btn_specialAttackActionPerformed
 
     private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
-        gameManager.character.specialAbility();
+        gameManager.specialAbility();
         updateStats(gameManager.character);
         if(gameManager.character.transformation==true){
                 this.btn_specialAttack.setEnabled(true);
             }
         this.btn_specilability.setEnabled(false);
     }//GEN-LAST:event_btn_specilabilityActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_attack;

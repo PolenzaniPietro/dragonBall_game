@@ -62,6 +62,7 @@ public abstract class Character extends Npc{
                 e.isAlive=false;
             }
             this.stamina-=10;
+            this.hp-=20;
             }
         else{
             if(e.hp-25 > 0){
@@ -71,9 +72,10 @@ public abstract class Character extends Npc{
                 e.isAlive=false;
             }
             this.stamina-=10;   
-            this.hp-=10;
+            this.hp-=15;
         }
         if(stamina<=0)stamina=0;
+        if(hp<=0)hp=0;
     }
     
     public void specialAttack(Enemy e){
@@ -85,7 +87,9 @@ public abstract class Character extends Npc{
             stamina = 0;
        }
         this.transformation=false;
+        
     }
+    
     public abstract void specialAbility();
     public  void auraCharge(){
         if(aura-20<10){
@@ -100,8 +104,8 @@ public abstract class Character extends Npc{
     }
     public Character trainingSession(){
         this.aura += 15;
-        if(this.stamina-20>0){
-            this.stamina-=20;
+        if(this.stamina-15>0){
+            this.stamina-=15;
         }
         else {
             this.stamina=0;        

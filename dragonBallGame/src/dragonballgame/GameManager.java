@@ -44,6 +44,18 @@ public class GameManager {
         Random random = new Random();
         currentEnemy = new Enemy(random.nextInt(70, 200));
     }
+    public void specialAttack(Enemy currentEnemy){
+        character.specialAttack(currentEnemy);
+    }
+    public void attack(Enemy currentEnemy){
+        character.attack(currentEnemy);
+    }
+    public void specialAbility(){
+        character.specialAbility();
+    }
+    public void auraCharge(){
+        character.auraCharge();
+    }
     public Events.event eventSelection(){
     Events.event ev = EventManager.randomEvent(); 
     if(ev != null){
