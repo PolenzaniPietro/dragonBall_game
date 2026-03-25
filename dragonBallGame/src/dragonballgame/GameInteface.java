@@ -5,6 +5,7 @@
 package dragonballgame;
 
 import java.awt.Image;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,11 +29,19 @@ public class GameInteface extends javax.swing.JFrame {
     
     public void setImage(String path) {
     this.imagePath = path;
-    ImageIcon icon = new ImageIcon(path);
+    ImageIcon icon = new ImageIcon(imagePath);
     Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
     JLabel label = new JLabel(new ImageIcon(img));
     pnl_image.add(label);
     pnl_image.revalidate();            
+}
+    public void setEnemyImage(String path) {
+    this.imagePath = path;
+    ImageIcon icon = new ImageIcon(imagePath);
+    Image img = icon.getImage().getScaledInstance(pnl_enemy.getWidth(),pnl_enemy.getHeight(),Image.SCALE_SMOOTH);
+    JLabel label = new JLabel(new ImageIcon(img));
+    pnl_enemy.add(label);
+    pnl_enemy.revalidate();            
 }
     public void setCharacter(Character c){
     gameManager.setCharacter(c);
@@ -171,7 +180,24 @@ public class GameInteface extends javax.swing.JFrame {
         updateStats(gameManager.character);
         if(ev.equals(Events.event.enemyAppear)){
             this.btn_attack.setEnabled(true);
-            
+            EnemiesNames e = this.gameManager.randomEnemy();
+           /* if(e.equals(EnemiesNames.broly)){
+                this.setEnemyImage("immagini/broly.png");           
+            }
+            else if(e.equals(EnemiesNames.janemba)){
+                this.setEnemyImage("immagini/janemba.png");
+            }
+            else if(e.equals(EnemiesNames.friezer)){
+                this.setEnemyImage("immagini/freezer.png");
+            }
+            else if(e.equals(EnemiesNames.majinBuu)){
+                this.setEnemyImage("immagini/superBuu.png");
+            }
+            else if(e.equals(EnemiesNames.cell)){
+                this.setEnemyImage("immagini/cell.png");
+            }
+               */     
+           this.setEnemyImage("immagini/cell.jpg");
         }
         if(gameManager.character.getBalls()==7){
             JOptionPane.showMessageDialog(this, "YOU'VE FOUND ALL THE DRAGON BALLS, CONGRATULATIONS!!! YOUR MISSION IS COMPLETED, FOR NOW...");

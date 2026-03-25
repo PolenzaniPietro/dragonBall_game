@@ -11,7 +11,7 @@ import java.util.Random;
  * @author polenzani.pietro
  */
 public class Enemy extends Npc{
-    private EnemiesNames name;
+    protected EnemiesNames name;
     Random random= new Random();
         
     public Enemy(int hp) {

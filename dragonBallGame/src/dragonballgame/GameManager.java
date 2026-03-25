@@ -42,7 +42,7 @@ public class GameManager {
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear(){
         Random random = new Random();
-        currentEnemy = new Enemy(random.nextInt(70, 200));
+        //currentEnemy = new Enemy(random.nextInt(70, 200));
     }
     public void specialAttack(Enemy currentEnemy){
         character.specialAttack(currentEnemy);
@@ -55,6 +55,11 @@ public class GameManager {
     }
     public void auraCharge(){
         character.auraCharge();
+    }
+    public EnemiesNames randomEnemy(){
+        int rnd = new Random().nextInt(EnemiesNames.values().length);
+        EnemiesNames e = EnemiesNames.values()[rnd];
+        return e;
     }
     public Events.event eventSelection(){
     Events.event ev = EventManager.randomEvent(); 
@@ -75,5 +80,6 @@ public class GameManager {
         }
     }
     return ev;
+         
     }
 }
