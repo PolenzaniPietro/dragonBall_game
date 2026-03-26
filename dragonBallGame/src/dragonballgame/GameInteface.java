@@ -188,15 +188,15 @@ public class GameInteface extends javax.swing.JFrame {
             this.btn_attack.setEnabled(true);
             EnemiesNames e = this.gameManager.randomEnemy();
             if (e.equals(EnemiesNames.broly)) {
-                this.setEnemyImage("immagini/broly.jpg");
+                this.setEnemyImage("immagini/broly.png");
             } else if (e.equals(EnemiesNames.janemba)) {
-                this.setEnemyImage("immagini/janemba.jpg");
+                this.setEnemyImage("immagini/janemba.png");
             } else if (e.equals(EnemiesNames.friezer)) {
-                this.setEnemyImage("immagini/freezer.jpg");
+                this.setEnemyImage("immagini/freezer.png");
             } else if (e.equals(EnemiesNames.majinBuu)) {
-                this.setEnemyImage("immagini/superBuu.jpg");
+                this.setEnemyImage("immagini/superBuu.png");
             } else if (e.equals(EnemiesNames.cell)) {
-                this.setEnemyImage("immagini/cell.jpg");
+                this.setEnemyImage("immagini/cell.png");
             }
 
         }
