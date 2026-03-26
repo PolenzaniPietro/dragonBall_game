@@ -39,12 +39,14 @@ public class GameInteface extends javax.swing.JFrame {
     }
 
     public void setEnemyImage(String path) {
+        pnl_enemy.removeAll();
         this.imagePath = path;
         ImageIcon icon = new ImageIcon(imagePath);
         Image img = icon.getImage().getScaledInstance(pnl_enemy.getWidth(), pnl_enemy.getHeight(), Image.SCALE_SMOOTH);
         JLabel label = new JLabel(new ImageIcon(img));
         pnl_enemy.add(label);
         pnl_enemy.revalidate();
+        pnl_enemy.repaint();
     }
 
     public void setCharacter(Character c) {
@@ -175,7 +177,7 @@ public class GameInteface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_specilability, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 780, 160, 60));
-        getContentPane().add(pnl_enemy, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 270, 350));
+        getContentPane().add(pnl_enemy, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 250, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,17 +188,29 @@ public class GameInteface extends javax.swing.JFrame {
         updateStats(gameManager.character);
         if (ev.equals(Events.event.enemyAppear)) {
             this.btn_attack.setEnabled(true);
-            EnemiesNames e = this.gameManager.randomEnemy();
-            if (e.equals(EnemiesNames.broly)) {
-                this.setEnemyImage("immagini/broly.png");
-            } else if (e.equals(EnemiesNames.janemba)) {
-                this.setEnemyImage("immagini/janemba.png");
-            } else if (e.equals(EnemiesNames.friezer)) {
-                this.setEnemyImage("immagini/freezer.png");
-            } else if (e.equals(EnemiesNames.majinBuu)) {
-                this.setEnemyImage("immagini/superBuu.png");
-            } else if (e.equals(EnemiesNames.cell)) {
-                this.setEnemyImage("immagini/cell.png");
+            Enemy enemy = gameManager.getCurrentEnemy();
+            EnemiesNames e = enemy.getName();
+            switch (e) {
+                case broly:
+                    this.setEnemyImage("immagini/broly.png");
+                    break;
+                case janemba:
+                    this.setEnemyImage("immagini/janemba.png");
+                    break;
+                case friezer:
+                    this.setEnemyImage("immagini/freezer.png");
+                    break;
+                case majinBuu:
+                    this.setEnemyImage("immagini/superBuu.png");
+                    break;
+                case cell:
+                    this.setEnemyImage("immagini/cell.png");
+                    break;
+                case grottelli:
+                    this.setEnemyImage("immagini/grottelliMalvagio.png");
+                    break;
+                default:
+                    break;
             }
 
         }
