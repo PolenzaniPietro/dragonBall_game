@@ -9,15 +9,17 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author polenzani.pietro
  */
 public class GameInteface extends javax.swing.JFrame {
+
     Player player = new Player();
-    GameManager gameManager= new GameManager();
+    GameManager gameManager = new GameManager();
     private String imagePath;
-    
+
     /**
      * Creates new form GameInteface
      */
@@ -26,39 +28,43 @@ public class GameInteface extends javax.swing.JFrame {
         this.btn_attack.setEnabled(false);
         this.btn_specialAttack.setEnabled(false);
     }
-    
+
     public void setImage(String path) {
-    this.imagePath = path;
-    ImageIcon icon = new ImageIcon(imagePath);
-    Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
-    JLabel label = new JLabel(new ImageIcon(img));
-    pnl_image.add(label);
-    pnl_image.revalidate();            
-}
+        this.imagePath = path;
+        ImageIcon icon = new ImageIcon(imagePath);
+        Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(), pnl_image.getHeight(), Image.SCALE_SMOOTH);
+        JLabel label = new JLabel(new ImageIcon(img));
+        pnl_image.add(label);
+        pnl_image.revalidate();
+    }
+
     public void setEnemyImage(String path) {
-    this.imagePath = path;
-    ImageIcon icon = new ImageIcon(imagePath);
-    Image img = icon.getImage().getScaledInstance(pnl_enemy.getWidth(),pnl_enemy.getHeight(),Image.SCALE_SMOOTH);
-    JLabel label = new JLabel(new ImageIcon(img));
-    pnl_enemy.add(label);
-    pnl_enemy.revalidate();            
-}
-    public void setCharacter(Character c){
-    gameManager.setCharacter(c);
-    updateStats(c);
-}
+        this.imagePath = path;
+        ImageIcon icon = new ImageIcon(imagePath);
+        Image img = icon.getImage().getScaledInstance(pnl_enemy.getWidth(), pnl_enemy.getHeight(), Image.SCALE_SMOOTH);
+        JLabel label = new JLabel(new ImageIcon(img));
+        pnl_enemy.add(label);
+        pnl_enemy.revalidate();
+    }
+
+    public void setCharacter(Character c) {
+        gameManager.setCharacter(c);
+        updateStats(c);
+    }
+
     public void updateStats(Character c) {
-    lbl_hp.setText(String.valueOf(c.getHp()));
-    lbl_stamina.setText(String.valueOf(c.getStamina()));
-    lbl_aura.setText(String.valueOf(c.getAura()));
-    lbl_att.setText(String.valueOf(c.getAtt()));
-    lbl_dragonBalls.setText(String.valueOf(c.getBalls()));
-}
+        lbl_hp.setText(String.valueOf(c.getHp()));
+        lbl_stamina.setText(String.valueOf(c.getStamina()));
+        lbl_aura.setText(String.valueOf(c.getAura()));
+        lbl_att.setText(String.valueOf(c.getAtt()));
+        lbl_dragonBalls.setText(String.valueOf(c.getBalls()));
+    }
+
     public void setUsername(String username) {
-    lbl_username.setText(username);
-    lbl_username.invalidate();
-}
-    
+        lbl_username.setText(username);
+        lbl_username.invalidate();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -178,32 +184,27 @@ public class GameInteface extends javax.swing.JFrame {
         Events.event ev = gameManager.eventSelection();
         txt_events.setText(txt_events.getText() + "\n" + ev);
         updateStats(gameManager.character);
-        if(ev.equals(Events.event.enemyAppear)){
+        if (ev.equals(Events.event.enemyAppear)) {
             this.btn_attack.setEnabled(true);
             EnemiesNames e = this.gameManager.randomEnemy();
-           /* if(e.equals(EnemiesNames.broly)){
-                this.setEnemyImage("immagini/broly.png");           
+            if (e.equals(EnemiesNames.broly)) {
+                this.setEnemyImage("immagini/broly.jpg");
+            } else if (e.equals(EnemiesNames.janemba)) {
+                this.setEnemyImage("immagini/janemba.jpg");
+            } else if (e.equals(EnemiesNames.friezer)) {
+                this.setEnemyImage("immagini/freezer.jpg");
+            } else if (e.equals(EnemiesNames.majinBuu)) {
+                this.setEnemyImage("immagini/superBuu.jpg");
+            } else if (e.equals(EnemiesNames.cell)) {
+                this.setEnemyImage("immagini/cell.jpg");
             }
-            else if(e.equals(EnemiesNames.janemba)){
-                this.setEnemyImage("immagini/janemba.png");
-            }
-            else if(e.equals(EnemiesNames.friezer)){
-                this.setEnemyImage("immagini/freezer.png");
-            }
-            else if(e.equals(EnemiesNames.majinBuu)){
-                this.setEnemyImage("immagini/superBuu.png");
-            }
-            else if(e.equals(EnemiesNames.cell)){
-                this.setEnemyImage("immagini/cell.png");
-            }
-               */     
-           this.setEnemyImage("immagini/cell.jpg");
+
         }
-        if(gameManager.character.getBalls()==7){
+        if (gameManager.getBalls() == 7) {
             JOptionPane.showMessageDialog(this, "YOU'VE FOUND ALL THE DRAGON BALLS, CONGRATULATIONS!!! YOUR MISSION IS COMPLETED, FOR NOW...");
             dispose();
         }
-        if(gameManager.character.transformation==false){
+        if (gameManager.getTransformation() == false) {
             this.btn_specilability.setEnabled(true);
         }
     }//GEN-LAST:event_btn_nextRoundActionPerformed
@@ -211,10 +212,10 @@ public class GameInteface extends javax.swing.JFrame {
     private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
         gameManager.attack(gameManager.getCurrentEnemy());
         updateStats(gameManager.character);
-        if(this.gameManager.character.getStamina()==0){
+        if (this.gameManager.character.getStamina() == 0) {
             this.btn_attack.setEnabled(false);
         }
-        if(gameManager.character.getHp()==0){
+        if (gameManager.character.getHp() == 0) {
             JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR WEAKNESS...");
             dispose();
         }
@@ -230,9 +231,9 @@ public class GameInteface extends javax.swing.JFrame {
     private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
         gameManager.specialAbility();
         updateStats(gameManager.character);
-        if(gameManager.character.transformation==true){
-                this.btn_specialAttack.setEnabled(true);
-            }
+        if (gameManager.character.transformation == true) {
+            this.btn_specialAttack.setEnabled(true);
+        }
         this.btn_specilability.setEnabled(false);
     }//GEN-LAST:event_btn_specilabilityActionPerformed
 

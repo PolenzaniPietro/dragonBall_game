@@ -12,22 +12,20 @@ import java.util.Random;
  * @author pietr
  */
 public class EventManager {
-    public static event randomEvent(){
+
+    public static event randomEvent() {
         int rnd = new Random().nextInt(event.values().length);
-        event eventoRandom = event.values()[rnd];  
-        if(eventoRandom.equals(event.dragonBall)){
+        event eventoRandom = event.values()[rnd];
+        if (eventoRandom.equals(event.dragonBall)) {
             int i = new Random().nextInt(200);
-            if(i<50){
-                 rnd = new Random().nextInt(event.values().length);
-            }
-            else{
+            if (i < 50) {
+                rnd = new Random().nextInt(event.values().length);
+            } else {
                 return eventoRandom;
             }
         }
-            
+
         return eventoRandom;
     }
-    
-    
-    
+
 }

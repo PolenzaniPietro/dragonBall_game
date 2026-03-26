@@ -19,5 +19,9 @@ public class Enemy extends Npc{
         int i= random.nextInt(EnemiesNames.values().length);
         this.name = EnemiesNames.values()[i];
     }
+
+    public EnemiesNames getName() {
+        return name;
+    }
     
 }

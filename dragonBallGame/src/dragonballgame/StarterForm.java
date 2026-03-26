@@ -17,7 +17,8 @@ public class StarterForm extends javax.swing.JFrame {
      */
     GameInteface g = new GameInteface();
     CharacterSelection c;
-    Player player= new Player();
+    Player player = new Player();
+
     public StarterForm() {
         initComponents();
     }
@@ -104,8 +105,9 @@ public class StarterForm extends javax.swing.JFrame {
 
     private void btn_newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newGameActionPerformed
         dispose();
-        if (c==null)
-            c= new CharacterSelection(g);
+        if (c == null) {
+            c = new CharacterSelection(g);
+        }
         c.setVisible(true);
     }//GEN-LAST:event_btn_newGameActionPerformed
 
@@ -115,8 +117,8 @@ public class StarterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loadCSVActionPerformed
 
     private void btn_loadBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loadBinaryActionPerformed
-       dispose();
-       g.setVisible(true);
+        dispose();
+        g.setVisible(true);
     }//GEN-LAST:event_btn_loadBinaryActionPerformed
 
     private void fld_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fld_usernameActionPerformed
@@ -124,9 +126,9 @@ public class StarterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_fld_usernameActionPerformed
 
     private void btn_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sendActionPerformed
-    String username = fld_username.getText().toUpperCase();
-    player.setName(username);   
-    g.setUsername(username);
+        String username = fld_username.getText().toUpperCase();
+        player.setName(username);
+        g.setUsername(username);
     }//GEN-LAST:event_btn_sendActionPerformed
 
     private void btn_istructionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_istructionActionPerformed
@@ -136,7 +138,6 @@ public class StarterForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_istruction;

@@ -12,20 +12,22 @@ import javax.swing.ImageIcon;
  * @author polenzani.pietro
  */
 public class CharacterSelection extends javax.swing.JFrame {
+
     GameInteface g;
+
     /**
      * Creates new form CharacterSelection
      */
-    
+
     public CharacterSelection(GameInteface gi) {
         initComponents();
         ImageIcon icon1 = new ImageIcon("immagini/goku_base.png");
         ImageIcon icon2 = new ImageIcon("immagini/gohan_base.png");
-        ImageIcon icon3 = new ImageIcon("immagini/vegeta_base.png");      
-        btn_character1.setIcon(icon1);    
+        ImageIcon icon3 = new ImageIcon("immagini/vegeta_base.png");
+        btn_character1.setIcon(icon1);
         btn_character2.setIcon(icon2);
         btn_character3.setIcon(icon3);
-        g=gi;
+        g = gi;
     }
 
     /**
