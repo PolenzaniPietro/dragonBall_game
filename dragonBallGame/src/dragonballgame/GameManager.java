@@ -13,13 +13,18 @@ import java.util.Random;
 public class GameManager {
 
     private Player player;
-    public Character character;
+    private Character character;
     private Enemy currentEnemy = null;
     private int killedEnemies = 0;
 
     public GameManager() {
     }
 
+    public Character getCharacter() {
+        return character;
+    }
+
+    
     public void setCharacter(Character c) {
         this.character = c;
     }

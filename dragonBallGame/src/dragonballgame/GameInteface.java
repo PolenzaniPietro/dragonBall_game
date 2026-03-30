@@ -96,6 +96,8 @@ public class GameInteface extends javax.swing.JFrame {
         btn_specialAttack = new javax.swing.JButton();
         btn_specilability = new javax.swing.JButton();
         pnl_enemy = new javax.swing.JPanel();
+        btn_saveCSV = new javax.swing.JButton();
+        btn_saveBinary = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,7 +147,7 @@ public class GameInteface extends javax.swing.JFrame {
 
         lbl_username.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbl_username.setText("PLAYER 1");
-        getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 250, 140));
+        getContentPane().add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 250, 50));
 
         txt_events.setEditable(false);
         txt_events.setColumns(20);
@@ -179,13 +181,19 @@ public class GameInteface extends javax.swing.JFrame {
         getContentPane().add(btn_specilability, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 780, 160, 60));
         getContentPane().add(pnl_enemy, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 250, 330));
 
+        btn_saveCSV.setText("SAVE CSV");
+        getContentPane().add(btn_saveCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 140, -1));
+
+        btn_saveBinary.setText("SAVE BINARY");
+        getContentPane().add(btn_saveBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 150, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextRoundActionPerformed
         Events.event ev = gameManager.eventSelection();
         txt_events.setText(txt_events.getText() + "\n" + ev);
-        updateStats(gameManager.character);
+        updateStats(gameManager.getCharacter());
         if (ev.equals(Events.event.enemyAppear)) {
             this.btn_attack.setEnabled(true);
             Enemy enemy = gameManager.getCurrentEnemy();
@@ -225,11 +233,11 @@ public class GameInteface extends javax.swing.JFrame {
 
     private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
         gameManager.attack(gameManager.getCurrentEnemy());
-        updateStats(gameManager.character);
-        if (this.gameManager.character.getStamina() == 0) {
+        updateStats(gameManager.getCharacter());
+        if (this.gameManager.getCharacter().getStamina() == 0) {
             this.btn_attack.setEnabled(false);
         }
-        if (gameManager.character.getHp() == 0) {
+        if (gameManager.getCharacter().getHp() == 0) {
             JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR WEAKNESS...");
             dispose();
         }
@@ -237,15 +245,15 @@ public class GameInteface extends javax.swing.JFrame {
 
     private void btn_specialAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specialAttackActionPerformed
         gameManager.specialAttack(gameManager.getCurrentEnemy());
-        updateStats(gameManager.character);
+        updateStats(gameManager.getCharacter());
         this.btn_specilability.setEnabled(true);
         this.btn_specialAttack.setEnabled(false);
     }//GEN-LAST:event_btn_specialAttackActionPerformed
 
     private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
         gameManager.specialAbility();
-        updateStats(gameManager.character);
-        if (gameManager.character.transformation == true) {
+        updateStats(gameManager.getCharacter());
+        if (gameManager.getCharacter().transformation == true) {
             this.btn_specialAttack.setEnabled(true);
         }
         this.btn_specilability.setEnabled(false);
@@ -254,6 +262,8 @@ public class GameInteface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_attack;
     private javax.swing.JButton btn_nextRound;
+    private javax.swing.JButton btn_saveBinary;
+    private javax.swing.JButton btn_saveCSV;
     private javax.swing.JButton btn_specialAttack;
     private javax.swing.JButton btn_specilability;
     private javax.swing.JLabel jLabel1;

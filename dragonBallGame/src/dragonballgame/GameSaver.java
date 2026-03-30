@@ -11,4 +11,12 @@ package dragonballgame;
 public class GameSaver {
     private Character c;
     private Player p; 
+    
+    public void saveCSV(){
+        
+    }
+    
+    public void saveBinary(){
+        
+    }
 }
