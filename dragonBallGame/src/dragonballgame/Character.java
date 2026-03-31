@@ -16,8 +16,9 @@ public abstract class Character extends Npc {
     protected int startStamina;
     protected boolean transformation;
     protected int nBalls;
-
-    public Character(int aura, int att, int stamina, int nBalls, int hp) {
+    protected String imagePath;
+    protected String specialImagePath;
+    public Character(int aura, int att, int stamina, int nBalls, int hp , String ip, String sip) {
         super(hp);
         this.aura = aura;
         this.att = att;
@@ -25,6 +26,16 @@ public abstract class Character extends Npc {
         this.stamina = startStamina;
         this.nBalls = nBalls;
         this.transformation = false;
+        this.imagePath=ip;
+        this.specialImagePath=sip;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public String getSpecialImagePath() {
+        return specialImagePath;
     }
 
     public int getAura() {
@@ -94,7 +105,7 @@ public abstract class Character extends Npc {
     }
 
     public abstract void specialAbility();
-
+    
     public void auraCharge() {
         if (aura - 15 < 10) {
             aura += aura - 15;

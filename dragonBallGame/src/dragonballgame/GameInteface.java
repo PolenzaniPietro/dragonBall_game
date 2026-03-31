@@ -143,7 +143,7 @@ public class GameInteface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_nextRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 780, 170, 60));
-        getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 220, 410));
+        getContentPane().add(pnl_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 220, 410));
 
         lbl_username.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbl_username.setText("PLAYER 1");
@@ -257,6 +257,17 @@ public class GameInteface extends javax.swing.JFrame {
             this.btn_specialAttack.setEnabled(true);
         }
         this.btn_specilability.setEnabled(false);
+        if (gameManager.getCharacter() instanceof Goku){
+            this.setImage(gameManager.getCharacter().getSpecialImagePath());
+        }
+        else if (gameManager.getCharacter() instanceof Gohan){
+            this.setImage(gameManager.getCharacter().getSpecialImagePath());
+        }
+        else if (gameManager.getCharacter() instanceof Vegeta){
+            this.setImage(gameManager.getCharacter().getSpecialImagePath());
+        }
+
+        
     }//GEN-LAST:event_btn_specilabilityActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

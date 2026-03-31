@@ -88,8 +88,8 @@ public class CharacterSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_character2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character2ActionPerformed
-        Gohan gohan = new Gohan(80, 70, 85, 0, 80);
-        g.setImage("immagini/gohan_base.png");
+        Gohan gohan = new Gohan(80, 70, 85, 0, 80,"immagini/gohan_base.png", "immagini/gohan_beast.png");
+        g.setImage(gohan.getImagePath());
         g.setCharacter(gohan);
     }//GEN-LAST:event_btn_character2ActionPerformed
 
@@ -99,14 +99,14 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_character1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character1ActionPerformed
-        Goku goku = new Goku(85, 80, 90, 0, 85);
-        g.setImage("immagini/goku_base.png");
+        Goku goku = new Goku(85, 80, 90, 0, 85,"immagini/goku_base.png" , "immagini/goku_mui.png");
+        g.setImage(goku.getImagePath());
         g.setCharacter(goku);
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
-        Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80);
-        g.setImage("immagini/vegeta_base.png");
+        Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80, "immagini_vegeta_base.png", "immagini/vegeta_ultra_ego.png");
+        g.setImage(vegeta.getImagePath());
         g.setCharacter(vegeta);
     }//GEN-LAST:event_btn_character3ActionPerformed
 

@@ -10,8 +10,8 @@ package dragonballgame;
  */
 public class Gohan extends Character{
 
-    public Gohan(int aura, int att, int stamina, int nBalls, int hp) {
-        super(aura, att, stamina, nBalls, hp);
+    public Gohan(int aura, int att, int stamina, int nBalls, int hp, String ip, String sip) {
+        super(aura, att, stamina, nBalls, hp, ip, sip);
     }
     
     @Override
