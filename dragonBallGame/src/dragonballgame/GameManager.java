@@ -60,10 +60,11 @@ public class GameManager {
         character.trainingSession();
     }
 
+    
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear() {
         Random random = new Random();
-        currentEnemy = new Enemy(random.nextInt(70, 200));
+        currentEnemy= new Enemy(random.nextInt(200, 300));
     }
 
     public void specialAttack(Enemy currentEnemy) {

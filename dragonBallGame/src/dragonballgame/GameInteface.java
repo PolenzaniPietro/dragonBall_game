@@ -27,6 +27,8 @@ public class GameInteface extends javax.swing.JFrame {
         initComponents();
         this.btn_attack.setEnabled(false);
         this.btn_specialAttack.setEnabled(false);
+        this.lbl_enemyHp.setVisible(false);
+        this.jLabel7.setVisible(false);
     }
 
     public void setImage(String path) {
@@ -98,6 +100,9 @@ public class GameInteface extends javax.swing.JFrame {
         pnl_enemy = new javax.swing.JPanel();
         btn_saveCSV = new javax.swing.JButton();
         btn_saveBinary = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lbl_enemyHp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,6 +192,13 @@ public class GameInteface extends javax.swing.JFrame {
         btn_saveBinary.setText("SAVE BINARY");
         getContentPane().add(btn_saveBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 150, -1));
 
+        jLabel6.setText("hp:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
+
+        lbl_enemyHp.setText("jLabel8");
+        getContentPane().add(lbl_enemyHp, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,6 +210,9 @@ public class GameInteface extends javax.swing.JFrame {
             this.btn_attack.setEnabled(true);
             Enemy enemy = gameManager.getCurrentEnemy();
             EnemiesNames e = enemy.getName();
+            this.lbl_enemyHp.setVisible(true);
+            this.jLabel7.setVisible(true);
+            this.lbl_enemyHp.setText(""+enemy.getHp());
             switch (e) {
                 case broly:
                     this.setEnemyImage("immagini/broly.png");
@@ -234,12 +249,17 @@ public class GameInteface extends javax.swing.JFrame {
     private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
         gameManager.attack(gameManager.getCurrentEnemy());
         updateStats(gameManager.getCharacter());
+        this.lbl_enemyHp.setText(""+gameManager.getCurrentEnemy().getHp());
         if (this.gameManager.getCharacter().getStamina() == 0) {
             this.btn_attack.setEnabled(false);
         }
         if (gameManager.getCharacter().getHp() == 0) {
             JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR WEAKNESS...");
             dispose();
+        }
+        if(gameManager.getCurrentEnemy().hp<=0){
+            this.pnl_enemy.removeAll();
+            this.pnl_enemy.revalidate();
         }
     }//GEN-LAST:event_btn_attackActionPerformed
 
@@ -248,6 +268,8 @@ public class GameInteface extends javax.swing.JFrame {
         updateStats(gameManager.getCharacter());
         this.btn_specilability.setEnabled(true);
         this.btn_specialAttack.setEnabled(false);
+        this.pnl_enemy.removeAll();
+        this.pnl_enemy.revalidate();
     }//GEN-LAST:event_btn_specialAttackActionPerformed
 
     private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
@@ -282,11 +304,14 @@ public class GameInteface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_att;
     private javax.swing.JLabel lbl_aura;
     private javax.swing.JLabel lbl_dragonBalls;
+    private javax.swing.JLabel lbl_enemyHp;
     private javax.swing.JLabel lbl_hp;
     private javax.swing.JLabel lbl_stamina;
     private javax.swing.JLabel lbl_username;

@@ -105,7 +105,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_character1ActionPerformed
 
     private void btn_character3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_character3ActionPerformed
-        Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80, "immagini_vegeta_base.png", "immagini/vegeta_ultra_ego.png");
+        Vegeta vegeta = new Vegeta(80, 90, 75, 0, 80, "immagini/vegeta_base.png", "immagini/vegeta_ultra_ego.png");
         g.setImage(vegeta.getImagePath());
         g.setCharacter(vegeta);
     }//GEN-LAST:event_btn_character3ActionPerformed
