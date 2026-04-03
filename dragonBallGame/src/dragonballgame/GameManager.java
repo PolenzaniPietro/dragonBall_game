@@ -24,20 +24,23 @@ public class GameManager {
         return character;
     }
 
-    
     public void setCharacter(Character c) {
         this.character = c;
     }
+
     public int getBalls() {
         return character.getBalls();
     }
-    public int getStamina(){
+
+    public int getStamina() {
         return character.getStamina();
     }
-    public int getAura(){
+
+    public int getAura() {
         return character.getAura();
     }
-    public boolean getTransformation(){
+
+    public boolean getTransformation() {
         return character.transformation;
     }
 
@@ -60,11 +63,10 @@ public class GameManager {
         character.trainingSession();
     }
 
-    
     //da implementare dopo aver finito tutti i metodi dei vari personaggi
     public void enemyAppear() {
         Random random = new Random();
-        currentEnemy= new Enemy(random.nextInt(200, 300));
+        currentEnemy = new Enemy(random.nextInt(50, 100));
     }
 
     public void specialAttack(Enemy currentEnemy) {
@@ -111,5 +113,4 @@ public class GameManager {
 
     }
 
-    
 }

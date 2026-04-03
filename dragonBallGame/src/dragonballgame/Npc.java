@@ -23,13 +23,11 @@ public class Npc {
         return hp;
     }
     
-    public int damage(int n){
-        if(hp-n<0){
-            this.hp-=n;
-        }
-        else {
-            hp=0;
-        }
-        return hp;
+    public void damage(int n) {
+    this.hp -= n;
+    if (this.hp <= 0) {
+        this.hp = 0;
+        this.isAlive = false;
     }
+}
 }

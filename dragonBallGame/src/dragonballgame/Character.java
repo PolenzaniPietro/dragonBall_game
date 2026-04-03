@@ -18,7 +18,8 @@ public abstract class Character extends Npc {
     protected int nBalls;
     protected String imagePath;
     protected String specialImagePath;
-    public Character(int aura, int att, int stamina, int nBalls, int hp , String ip, String sip) {
+
+    public Character(int aura, int att, int stamina, int nBalls, int hp, String ip, String sip) {
         super(hp);
         this.aura = aura;
         this.att = att;
@@ -26,8 +27,8 @@ public abstract class Character extends Npc {
         this.stamina = startStamina;
         this.nBalls = nBalls;
         this.transformation = false;
-        this.imagePath=ip;
-        this.specialImagePath=sip;
+        this.imagePath = ip;
+        this.specialImagePath = sip;
     }
 
     public String getImagePath() {
@@ -60,35 +61,30 @@ public abstract class Character extends Npc {
     }
 
     public int resetHp() {
-        this.hp = this.StartHp;
+        this.hp = this.StartHp + 10;
         return hp;
     }
 
     public void attack(Enemy e) {
 
-        if (transformation == false) {
+        if (!transformation) {
             if (stamina < 15) {
                 e.damage(5);
-            } else if (e.hp - 20 > 0) {
-                e.damage(20);
             } else {
-                e.isAlive = false;
+                e.damage(20);
             }
             this.stamina -= 10;
             this.hp -= 20;
         } else {
-            if (e.hp - 25 > 0) {
-                e.damage(e.hp - this.att / 2);
-            } else {
-                e.isAlive = false;
-            }
+            e.damage(att / 2);
             this.stamina -= 10;
             this.hp -= 15;
         }
-        if (stamina <= 0) {
+
+        if (stamina < 0) {
             stamina = 0;
         }
-        if (hp <= 0) {
+        if (hp < 0) {
             hp = 0;
         }
     }
@@ -105,7 +101,7 @@ public abstract class Character extends Npc {
     }
 
     public abstract void specialAbility();
-    
+
     public void auraCharge() {
         if (aura - 15 < 10) {
             aura += aura - 15;

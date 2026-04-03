@@ -28,17 +28,19 @@ public class GameInteface extends javax.swing.JFrame {
         this.btn_attack.setEnabled(false);
         this.btn_specialAttack.setEnabled(false);
         this.lbl_enemyHp.setVisible(false);
-        this.jLabel7.setVisible(false);
+        this.jLabel6.setVisible(false);
     }
 
     public void setImage(String path) {
-        this.imagePath = path;
-        ImageIcon icon = new ImageIcon(imagePath);
-        Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(), pnl_image.getHeight(), Image.SCALE_SMOOTH);
-        JLabel label = new JLabel(new ImageIcon(img));
-        pnl_image.add(label);
-        pnl_image.revalidate();
-    }
+    pnl_image.removeAll(); 
+    this.imagePath = path;
+    ImageIcon icon = new ImageIcon(imagePath);
+    Image img = icon.getImage().getScaledInstance(pnl_image.getWidth(),pnl_image.getHeight(),Image.SCALE_SMOOTH);
+    JLabel label = new JLabel(new ImageIcon(img));
+    pnl_image.add(label);
+    pnl_image.revalidate();
+    pnl_image.repaint();
+}
 
     public void setEnemyImage(String path) {
         pnl_enemy.removeAll();
@@ -207,12 +209,13 @@ public class GameInteface extends javax.swing.JFrame {
         txt_events.setText(txt_events.getText() + "\n" + ev);
         updateStats(gameManager.getCharacter());
         if (ev.equals(Events.event.enemyAppear)) {
-            this.btn_attack.setEnabled(true);
-            Enemy enemy = gameManager.getCurrentEnemy();
-            EnemiesNames e = enemy.getName();
-            this.lbl_enemyHp.setVisible(true);
-            this.jLabel7.setVisible(true);
-            this.lbl_enemyHp.setText(""+enemy.getHp());
+        btn_attack.setEnabled(true);
+        btn_nextRound.setEnabled(false);
+        Enemy enemy = gameManager.getCurrentEnemy();
+        EnemiesNames e = enemy.getName();
+        lbl_enemyHp.setVisible(true);
+        jLabel6.setVisible(true);
+        lbl_enemyHp.setText("" + enemy.getHp());
             switch (e) {
                 case broly:
                     this.setEnemyImage("immagini/broly.png");
@@ -249,7 +252,7 @@ public class GameInteface extends javax.swing.JFrame {
     private void btn_attackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_attackActionPerformed
         gameManager.attack(gameManager.getCurrentEnemy());
         updateStats(gameManager.getCharacter());
-        this.lbl_enemyHp.setText(""+gameManager.getCurrentEnemy().getHp());
+        this.lbl_enemyHp.setText("" + gameManager.getCurrentEnemy().getHp());
         if (this.gameManager.getCharacter().getStamina() == 0) {
             this.btn_attack.setEnabled(false);
         }
@@ -257,9 +260,15 @@ public class GameInteface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "YOU'RE DEAD, YOU'VE FAILED YOUR MISSION, AND THE MIGHTY ENEMY HAS CONQUERED THE EARTH, JUST FOR YOUR WEAKNESS...");
             dispose();
         }
-        if(gameManager.getCurrentEnemy().hp<=0){
+        if (gameManager.getCurrentEnemy().getHp() <= 0) {
             this.pnl_enemy.removeAll();
             this.pnl_enemy.revalidate();
+            this.pnl_enemy.repaint();
+            this.lbl_enemyHp.setVisible(false);
+            this.jLabel6.setVisible(false);
+            this.btn_attack.setEnabled(false);
+            this.btn_specialAttack.setEnabled(false);
+            this.btn_nextRound.setEnabled(true); 
         }
     }//GEN-LAST:event_btn_attackActionPerformed
 
@@ -267,9 +276,15 @@ public class GameInteface extends javax.swing.JFrame {
         gameManager.specialAttack(gameManager.getCurrentEnemy());
         updateStats(gameManager.getCharacter());
         this.btn_specilability.setEnabled(true);
-        this.btn_specialAttack.setEnabled(false);
         this.pnl_enemy.removeAll();
         this.pnl_enemy.revalidate();
+        this.pnl_enemy.repaint();
+        this.lbl_enemyHp.setVisible(false);
+        this.jLabel6.setVisible(false);
+        this.btn_attack.setEnabled(false);
+        this.pnl_image.removeAll();
+        this.setImage(gameManager.getCharacter().getImagePath());
+        this.btn_nextRound.setEnabled(true); 
     }//GEN-LAST:event_btn_specialAttackActionPerformed
 
     private void btn_specilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_specilabilityActionPerformed
@@ -279,17 +294,15 @@ public class GameInteface extends javax.swing.JFrame {
             this.btn_specialAttack.setEnabled(true);
         }
         this.btn_specilability.setEnabled(false);
-        if (gameManager.getCharacter() instanceof Goku){
+        if (gameManager.getCharacter() instanceof Goku) {
             this.setImage(gameManager.getCharacter().getSpecialImagePath());
-        }
-        else if (gameManager.getCharacter() instanceof Gohan){
+        } else if (gameManager.getCharacter() instanceof Gohan) {
             this.setImage(gameManager.getCharacter().getSpecialImagePath());
-        }
-        else if (gameManager.getCharacter() instanceof Vegeta){
+        } else if (gameManager.getCharacter() instanceof Vegeta) {
             this.setImage(gameManager.getCharacter().getSpecialImagePath());
         }
 
-        
+
     }//GEN-LAST:event_btn_specilabilityActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
