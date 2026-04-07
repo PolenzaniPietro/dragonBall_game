@@ -4,7 +4,9 @@
  */
 package dragonballgame;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -13,35 +15,66 @@ import java.io.IOException;
  * @author polenzani.pietro
  */
 public class GameSaver {
+
     private Character c;
-    private Player p; 
-    
-public GameSaver(Character c, Player p) {
-    this.c = c;
-    this.p = p;
-}
+    private Player p;
 
-public void saveCSV() {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv"))) {
-        StringBuilder line = new StringBuilder();
-        line.append(p.getName()).append(",");
-        line.append(c.getHp()).append(",");
-        line.append(c.getAura()).append(",");
-        line.append(c.getAtt()).append(",");
-        line.append(c.getStamina()).append(",");
-        line.append(c.getBalls()).append(",");
-        line.append(c.getImagePath()).append(",");
-        line.append(c.getSpecialImagePath());
-        writer.write(line.toString());
-        writer.newLine();
-
-    } catch (IOException e) {
-
+    public GameSaver(Character c, Player p) {
+        this.c = c;
+        this.p = p;
     }
-}
-    
 
-    public void saveBinary(){
-        
+    public void saveCSV() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv"))) {
+
+            writer.write(
+                    p.getName() + ","
+                    + c.getClass().getSimpleName() + ","
+                    + c.getHp() + ","
+                    + c.getAura() + ","
+                    + c.getAtt() + ","
+                    + c.getStamina() + ","
+                    + c.getBalls() + ","
+                    + c.getImagePath() + ","
+                    + c.getSpecialImagePath()
+            );
+
+            writer.newLine();
+
+        } catch (IOException e) {
+
+        }
     }
+
+    public void loadCSV() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("salvataggio.csv"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] stats = line.split(",");
+                String type = stats[2];
+                if (type.equals("Goku")) {
+                    c = new Goku(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
+                } else if (type.equals("Gohan")) {
+                    c = new Gohan(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
+                } else if (type.equals("Vegeta")) {
+                    c = new Vegeta(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
+                }
+                c.setHp(Integer.parseInt(stats[3]));
+                c.setAura(Integer.parseInt(stats[4]));
+                c.setAtt(Integer.parseInt(stats[5]));
+                c.setStamina(Integer.parseInt(stats[6]));
+                c.setnBalls(Integer.parseInt(stats[7]));
+                c.setImagePath(stats[8]);
+                c.setSpecialImagePath(stats[9]);
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+
+        }
+    }
+   
+
 }

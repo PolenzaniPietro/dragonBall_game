@@ -4,11 +4,13 @@
  */
 package dragonballgame;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pietr
  */
-public abstract class Character extends Npc {
+public abstract class Character extends Npc implements Serializable{
 
     protected int aura;
     protected int att;
@@ -31,6 +33,35 @@ public abstract class Character extends Npc {
         this.specialImagePath = sip;
     }
 
+    public void setAura(int aura) {
+        this.aura = aura;
+    }
+
+    public void setAtt(int att) {
+        this.att = att;
+    }
+
+    
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    public void setnBalls(int nBalls) {
+        this.nBalls = nBalls;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public void setSpecialImagePath(String specialImagePath) {
+        this.specialImagePath = specialImagePath;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    
     public String getImagePath() {
         return imagePath;
     }
@@ -125,4 +156,6 @@ public abstract class Character extends Npc {
         }
         return this;
     }
+
+    
 }
