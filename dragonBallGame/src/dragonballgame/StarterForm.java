@@ -115,6 +115,9 @@ public class StarterForm extends javax.swing.JFrame {
         GameSaver.loadCSV();
         Character c = GameSaver.getCharacter();
         Player p = GameSaver.getPlayer();
+        if (c == null || p == null) {
+            return; 
+        }   
         g.setUsername(p.getName());
         g.setCharacter(c);
         g.setVisible(true);
@@ -125,7 +128,6 @@ public class StarterForm extends javax.swing.JFrame {
         GameSaver saver = new GameSaver();
         saver.loadBinary();
         g.setCharacter(saver.getCharacter());
-        g.setUsername(saver.getPlayer().getName());
         g.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_loadBinaryActionPerformed

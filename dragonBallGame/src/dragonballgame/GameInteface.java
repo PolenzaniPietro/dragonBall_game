@@ -317,10 +317,12 @@ public class GameInteface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_specilabilityActionPerformed
 
     private void btn_saveCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveCSVActionPerformed
+        GameSaver.setData(this.gameManager.getCharacter(), this.player);
         gameSaver.saveCSV();
     }//GEN-LAST:event_btn_saveCSVActionPerformed
 
     private void btn_saveBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveBinaryActionPerformed
+        GameSaver.setData(this.gameManager.getCharacter(), this.player);
         gameSaver.saveBinary();
     }//GEN-LAST:event_btn_saveBinaryActionPerformed
 

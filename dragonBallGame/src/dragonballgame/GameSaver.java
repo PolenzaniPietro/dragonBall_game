@@ -47,34 +47,39 @@ public class GameSaver {
     }
 
     public static void loadCSV() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("salvataggio.csv"));
-            String line;
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                String[] stats = line.split(",");
-                String type = stats[2];
-                if (type.equals("Goku")) {
-                    c = new Goku(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
-                } else if (type.equals("Gohan")) {
-                    c = new Gohan(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
-                } else if (type.equals("Vegeta")) {
-                    c = new Vegeta(c.getAura(), c.getAtt(), c.getStamina(), c.getBalls(), c.getHp(), c.getImagePath(), c.getSpecialImagePath());
-                }
-                c.setHp(Integer.parseInt(stats[3]));
-                c.setAura(Integer.parseInt(stats[4]));
-                c.setAtt(Integer.parseInt(stats[5]));
-                c.setStamina(Integer.parseInt(stats[6]));
-                c.setnBalls(Integer.parseInt(stats[7]));
-                c.setImagePath(stats[8]);
-                c.setSpecialImagePath(stats[9]);
+    try {
+        BufferedReader reader = new BufferedReader(new FileReader("salvataggio.csv"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] stats = line.split(",");
+            String type = stats[1];
+
+            p = new Player();
+            p.setName(stats[0]);
+            switch (type) {
+                case "Goku":
+                    c = new Goku(0,0,0,0,0,"","");
+                    break;
+                case "Gohan":
+                    c = new Gohan(0,0,0,0,0,"","");
+                    break;
+                case "Vegeta":
+                    c = new Vegeta(0,0,0,0,0,"","");
+                    break;
             }
-
-            reader.close();
-
-        } catch (IOException e) {
+            c.setHp(Integer.parseInt(stats[2]));
+            c.setAura(Integer.parseInt(stats[3]));
+            c.setAtt(Integer.parseInt(stats[4]));
+            c.setStamina(Integer.parseInt(stats[5]));
+            c.setnBalls(Integer.parseInt(stats[6]));
+            c.setImagePath(stats[7]);
+            c.setSpecialImagePath(stats[8]);
         }
+        reader.close();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 
     public static void saveBinary() {
         try {

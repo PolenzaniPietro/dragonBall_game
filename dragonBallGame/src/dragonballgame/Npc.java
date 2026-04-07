@@ -28,6 +28,6 @@ public class Npc {
     if (this.hp <= 0) {
         this.hp = 0;
         this.isAlive = false;
+        }
     }
-}
 }
