@@ -28,6 +28,14 @@ public class GameSaver {
         this.p = p;
     }
 
+    public Character getCharacter() {
+        return c;
+    }
+
+    public Player getPlayer() {
+        return p;
+    }
+    
     public void saveCSV() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv"))) {
 

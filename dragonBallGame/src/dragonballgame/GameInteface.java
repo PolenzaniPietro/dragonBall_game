@@ -15,10 +15,11 @@ import javax.swing.JOptionPane;
  * @author polenzani.pietro
  */
 public class GameInteface extends javax.swing.JFrame {
-
+    
     Player player = new Player();
     GameManager gameManager = new GameManager();
     private String imagePath;
+    GameSaver gameSaver;
 
     /**
      * Creates new form GameInteface
@@ -55,6 +56,7 @@ public class GameInteface extends javax.swing.JFrame {
 
     public void setCharacter(Character c) {
         gameManager.setCharacter(c);
+        gameSaver = new GameSaver(c, player);
         updateStats(c);
     }
 
@@ -189,9 +191,19 @@ public class GameInteface extends javax.swing.JFrame {
         getContentPane().add(pnl_enemy, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 250, 330));
 
         btn_saveCSV.setText("SAVE CSV");
+        btn_saveCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveCSVActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_saveCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 140, -1));
 
         btn_saveBinary.setText("SAVE BINARY");
+        btn_saveBinary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveBinaryActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_saveBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 150, -1));
 
         jLabel6.setText("hp:");
@@ -304,6 +316,14 @@ public class GameInteface extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btn_specilabilityActionPerformed
+
+    private void btn_saveCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveCSVActionPerformed
+        gameSaver.saveCSV();
+    }//GEN-LAST:event_btn_saveCSVActionPerformed
+
+    private void btn_saveBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveBinaryActionPerformed
+        gameSaver.saveBinary();
+    }//GEN-LAST:event_btn_saveBinaryActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_attack;
