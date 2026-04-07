@@ -56,9 +56,8 @@ public class GameInteface extends javax.swing.JFrame {
 
     public void setCharacter(Character c) {
         gameManager.setCharacter(c);
-        gameSaver = new GameSaver(c, player);
         updateStats(c);
-    }
+}
 
     public void updateStats(Character c) {
         lbl_hp.setText(String.valueOf(c.getHp()));

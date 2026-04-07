@@ -112,16 +112,17 @@ public class StarterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_newGameActionPerformed
 
     private void btn_loadCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loadCSVActionPerformed
-        GameSaver saver = new GameSaver(null, null);
-        saver.loadCSV();
-        g.setCharacter(saver.getCharacter());
-        g.setUsername(saver.getPlayer().getName());
+        GameSaver.loadCSV();
+        Character c = GameSaver.getCharacter();
+        Player p = GameSaver.getPlayer();
+        g.setUsername(p.getName());
+        g.setCharacter(c);
         g.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_loadCSVActionPerformed
 
     private void btn_loadBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loadBinaryActionPerformed
-        GameSaver saver = new GameSaver(null, null);
+        GameSaver saver = new GameSaver();
         saver.loadBinary();
         g.setCharacter(saver.getCharacter());
         g.setUsername(saver.getPlayer().getName());

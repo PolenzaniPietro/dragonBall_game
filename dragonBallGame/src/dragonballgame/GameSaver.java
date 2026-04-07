@@ -4,40 +4,28 @@
  */
 package dragonballgame;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
-/**
- *
- * @author polenzani.pietro
- */
 public class GameSaver {
 
-    private Character c;
-    private Player p;
+    private static Character c;
+    private static Player p;
 
-    public GameSaver(Character c, Player p) {
-        this.c = c;
-        this.p = p;
+    public static void setData(Character character, Player player) {
+        c = character;
+        p = player;
     }
 
-    public Character getCharacter() {
+    public static Character getCharacter() {
         return c;
     }
 
-    public Player getPlayer() {
+    public static Player getPlayer() {
         return p;
     }
-    
-    public void saveCSV() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv"))) {
+
+    public static void saveCSV() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv", true))) {
 
             writer.write(
                     p.getName() + ","
@@ -58,10 +46,11 @@ public class GameSaver {
         }
     }
 
-    public void loadCSV() {
+    public static void loadCSV() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("salvataggio.csv"));
             String line;
+            reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] stats = line.split(",");
                 String type = stats[2];
@@ -84,24 +73,20 @@ public class GameSaver {
             reader.close();
 
         } catch (IOException e) {
-
         }
     }
 
-    public void saveBinary() {
+    public static void saveBinary() {
         try {
             ObjectOutputStream saver = new ObjectOutputStream(new FileOutputStream("salvataggio.dat"));
-
             saver.writeObject(p);
             saver.writeObject(c);
             saver.close();
-            System.out.println("Salvataggio binario completato!");
-
         } catch (IOException e) {
         }
     }
 
-    public void loadBinary() {
+    public static void loadBinary() {
         try {
             ObjectInputStream loader = new ObjectInputStream(new FileInputStream("salvataggio.dat"));
 
@@ -113,5 +98,4 @@ public class GameSaver {
         } catch (IOException | ClassNotFoundException e) {
         }
     }
-
 }
