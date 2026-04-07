@@ -1,0 +1,89 @@
+---
+config:
+  layout: elk
+  theme: neo
+  look: neo
+---
+classDiagram
+
+%% Core
+class DragonBallGame {
+    +main()
+}
+
+class GameManager {
+    +startGame()
+    +updateGame()
+}
+
+class GameSaver {
+    +save()
+    +load()
+}
+
+%% Player & Characters
+class Character {
+    -name
+    -health
+    -attack
+    +attack()
+    +takeDamage()
+}
+
+class Player {
+    +level
+    +experience
+}
+
+class Goku
+class Gohan
+class Vegeta
+
+Character <|-- Player
+Player <|-- Goku
+Player <|-- Gohan
+Player <|-- Vegeta
+
+%% Enemies
+class Enemy {
+    +attack()
+}
+
+class EnemiesNames
+
+Character <|-- Enemy
+Enemy --> EnemiesNames
+
+%% NPC
+class Npc {
+    +interact()
+}
+
+Character <|-- Npc
+
+%% Events
+class Events {
+    +triggerEvent()
+}
+
+class eventManager {
+    +handleEvents()
+}
+
+eventManager --> Events
+
+%% UI
+class StarterForm
+class CharacterSelection
+class GameInteface
+
+StarterForm --> CharacterSelection
+CharacterSelection --> GameInteface
+GameInteface --> GameManager
+
+%% Connections
+DragonBallGame --> StarterForm
+GameManager --> Player
+GameManager --> Enemy
+GameManager --> GameSaver
+GameManager --> eventManager
