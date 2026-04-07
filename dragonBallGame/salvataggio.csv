@@ -4,3 +4,7 @@ null,Gohan,90,110,70,85,2,immagini/gohan_base.png,immagini/gohan_beast.png
 null,Gohan,90,110,70,85,2,immagini/gohan_base.png,immagini/gohan_beast.png
 null,Goku,85,100,80,75,0,immagini/goku_base.png,immagini/goku_mui.png
 null,Goku,85,100,80,75,0,immagini/goku_base.png,immagini/goku_mui.png
+null,Goku,95,100,80,90,2,immagini/goku_base.png,immagini/goku_mui.png
+null,Goku,5,85,80,50,0,immagini/goku_base.png,immagini/goku_mui.png
+null,Vegeta,30,95,90,45,0,immagini/vegeta_base.png,immagini/vegeta_ultra_ego.png
+null,Vegeta,0,30,95,90,45,immagini/vegeta_base.png,immagini/vegeta_ultra_ego.png

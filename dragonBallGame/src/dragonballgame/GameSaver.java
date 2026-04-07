@@ -26,7 +26,6 @@ public class GameSaver {
 
     public static void saveCSV() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.csv", true))) {
-
             writer.write(
                     p.getName() + ","
                     + c.getClass().getSimpleName() + ","
@@ -38,11 +37,8 @@ public class GameSaver {
                     + c.getImagePath() + ","
                     + c.getSpecialImagePath()
             );
-
             writer.newLine();
-
         } catch (IOException e) {
-
         }
     }
 
@@ -52,35 +48,25 @@ public class GameSaver {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] stats = line.split(",");
-            String type = stats[1];
-
             p = new Player();
             p.setName(stats[0]);
-            switch (type) {
-                case "Goku":
-                    c = new Goku(0,0,0,0,0,"","");
-                    break;
-                case "Gohan":
-                    c = new Gohan(0,0,0,0,0,"","");
-                    break;
-                case "Vegeta":
-                    c = new Vegeta(0,0,0,0,0,"","");
-                    break;
+            if(stats[0]==null){
+                p.setName("PLAYER 1");
             }
-            c.setHp(Integer.parseInt(stats[2]));
-            c.setAura(Integer.parseInt(stats[3]));
-            c.setAtt(Integer.parseInt(stats[4]));
-            c.setStamina(Integer.parseInt(stats[5]));
-            c.setnBalls(Integer.parseInt(stats[6]));
-            c.setImagePath(stats[7]);
-            c.setSpecialImagePath(stats[8]);
+            String type = stats[1]; 
+            if (type.equals("Goku")) {
+                c = new Goku(Integer.parseInt(stats[2]), Integer.parseInt(stats[3]), Integer.parseInt(stats[4]), Integer.parseInt(stats[5]), Integer.parseInt(stats[6]),stats[7],stats[8]  );
+            } else if (type.equals("Gohan")) {
+                c = new Gohan(Integer.parseInt(stats[2]), Integer.parseInt(stats[3]), Integer.parseInt(stats[4]), Integer.parseInt(stats[5]), Integer.parseInt(stats[6]),stats[7],stats[8]  );
+            } else if (type.equals("Vegeta")) {
+                c = new Vegeta(Integer.parseInt(stats[2]), Integer.parseInt(stats[3]), Integer.parseInt(stats[4]), Integer.parseInt(stats[5]), Integer.parseInt(stats[6]),stats[7],stats[8]  );
+            }
         }
         reader.close();
     } catch (IOException e) {
-        e.printStackTrace();
+        e.printStackTrace(); 
+        }
     }
-}
-
     public static void saveBinary() {
         try {
             ObjectOutputStream saver = new ObjectOutputStream(new FileOutputStream("salvataggio.dat"));
@@ -92,15 +78,31 @@ public class GameSaver {
     }
 
     public static void loadBinary() {
-        try {
-            ObjectInputStream loader = new ObjectInputStream(new FileInputStream("salvataggio.dat"));
+    try {
+        ObjectInputStream loader = new ObjectInputStream(new FileInputStream("salvataggio.dat"));
 
-            p = (Player) loader.readObject();
-            c = (Character) loader.readObject();
+        p = (Player) loader.readObject();
+        c = (Character) loader.readObject();
 
-            loader.close();
+        loader.close();
 
-        } catch (IOException | ClassNotFoundException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        p = null;
+        c = null;
+    }
+    if (p == null || p.getName() == null || p.getName().isEmpty()) {
+        p = new Player();
+        p.setName("PLAYER 1");
+    }
+    if (c == null) {
+        c = new Goku(50, 10, 50, 0, 100, "images/goku.png", "images/goku_special.png");
+    } else {
+        if (c.getImagePath() == null || c.getImagePath().isEmpty()) {
+            c.setImagePath("images/goku.png");
+        }
+        if (c.getSpecialImagePath() == null || c.getSpecialImagePath().isEmpty()) {
+            c.setSpecialImagePath("images/goku_special.png");
         }
     }
+}
 }

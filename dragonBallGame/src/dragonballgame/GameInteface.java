@@ -55,8 +55,15 @@ public class GameInteface extends javax.swing.JFrame {
     }
 
     public void setCharacter(Character c) {
-        gameManager.setCharacter(c);
-        updateStats(c);
+    this.gameManager.setCharacter(c);
+    if (this.gameManager.getCharacter() != null) {
+        updateStats(this.gameManager.getCharacter()); 
+    }
+    if (c.transformation && c.getSpecialImagePath() != null && !c.getSpecialImagePath().isEmpty()) {
+        setImage(c.getSpecialImagePath());
+    } else if (c.getImagePath() != null && !c.getImagePath().isEmpty()) {
+        setImage(c.getImagePath());
+    }
 }
 
     public void updateStats(Character c) {
