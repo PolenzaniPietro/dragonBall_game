@@ -6,9 +6,13 @@ package dragonballgame;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -75,6 +79,31 @@ public class GameSaver {
 
         }
     }
-   
+
+    public void saveBinary() {
+        try {
+            ObjectOutputStream saver = new ObjectOutputStream(new FileOutputStream("salvataggio.dat"));
+
+            saver.writeObject(p);
+            saver.writeObject(c);
+            saver.close();
+            System.out.println("Salvataggio binario completato!");
+
+        } catch (IOException e) {
+        }
+    }
+
+    public void loadBinary() {
+        try {
+            ObjectInputStream loader = new ObjectInputStream(new FileInputStream("salvataggio.dat"));
+
+            p = (Player) loader.readObject();
+            c = (Character) loader.readObject();
+
+            loader.close();
+
+        } catch (IOException | ClassNotFoundException e) {
+        }
+    }
 
 }

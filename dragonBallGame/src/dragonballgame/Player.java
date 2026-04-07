@@ -4,16 +4,16 @@
  */
 package dragonballgame;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pietr
  */
-public class Player {
+public class Player implements Serializable{
     protected String name;
-    protected int score;
 
     public Player() {
-        this.score = 0;
     }
 
     public String getName() {
